@@ -2,7 +2,7 @@
 
 **Beta 0.1 · Editor 1.0.11 · Framework validator 0.9.2**
 
-The Windows editor works offline. A project holds a content snapshot, edits and QA records. EU4 reads the exported mod. See the [installation guide](Political-Framework-Beta-0.1-Install-Guide-en.pdf) for setup.
+The Windows editor works offline. A project holds a content snapshot, edits and QA records. EU4 reads the exported mod. See the [modder tutorial](Modder-Tutorial.en.md) for content design and scripts, and the [installation guide](Install-Guide.en.md) for setup.
 
 ## First project
 

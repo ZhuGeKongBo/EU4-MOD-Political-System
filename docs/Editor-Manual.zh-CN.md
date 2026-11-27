@@ -2,7 +2,7 @@
 
 **Beta 0.1 · 编辑器 1.0.11 · 框架校验 0.9.2**
 
-编辑器是 Windows 离线工作台。项目文件保存 Mod 内容的工作副本、界面编辑和验证记录。游戏使用导出的 Mod。安装见 [安装手册](Political-Framework-Beta-0.1-Install-Guide-zh-CN.pdf)。
+编辑器是 Windows 离线工作台。项目文件保存 Mod 内容的工作副本、界面编辑和验证记录。游戏使用导出的 Mod。制作新体系的规则及脚本见 [Modder 教程](Modder-Tutorial.zh-CN.md)，安装见 [安装教程](Install-Guide.zh-CN.md)。
 
 ## 第一次打开
 

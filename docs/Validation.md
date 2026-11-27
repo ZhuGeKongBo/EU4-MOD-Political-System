@@ -21,3 +21,12 @@ A previous 0.9.1 QA campaign recorded both the Ashikaga and Mongol panels openin
 
 四种内容组合的预检均为 **0 个结构错误**。编辑器实际读入了精简后的幕府和蒙古内容，核对了两套入口、面板、开局领袖与万户任命，并通过工程编辑、存读和导出测试。Anvil 核对了 114 个符号，运行时 DLL 与合并 QA 0.9.2 包一致。此前 0.9.1 战役记录过新旧体系同存。精简发布内容与 0.9.2 新弹窗在战役中的表现仍待验收。
 
+
+## 作者补充说明 · Author's notes
+
+- 教廷、原住民联盟两种预设（只在编辑器模板中提供）以及从零自建政治体系的可靠性尚未测试。
+  The Papacy and Native Federation presets (editor templates only) and political systems built from scratch have not been tested for reliability.
+- 室町幕府与蒙古帝国两套示例中，许多文本与接口仍有问题。
+  The Ashikaga Shogunate and Mongol Empire examples still have many problems with their texts and interfaces.
+- 汉化补丁（EU4dll 双字节 / UTF-8）与 Anvil 共用 `version.dll` 的情况未测试。
+  Running the Chinese patches (EU4dll double-byte / UTF-8) together with Anvil, which both use `version.dll`, has not been tested.

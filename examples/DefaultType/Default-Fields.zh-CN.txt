@@ -1,4 +1,4 @@
-# 0.7.9 政治体系类型参考。留在 reference/political_systems，游戏不读取这份表。
+# 0.9.2 政治体系类型参考。这份文件放在 examples/DefaultType，游戏不读取它。
 # 此处的值是写法示例。新体系从 common/political_systems/types 下的已有预设继承，再复制自己需要的段落。
 # 写进 types 目录的 default 会成为没有 copy_from 的类型的共同母版。一个环境只定义一个 default。
 # 省略字段一般沿用父级。yes/no、clear、null 的支持见各段。删除条目时也要清理引用其 ID 的行动和历史。
@@ -189,7 +189,7 @@ default = {                                         # 全局默认母版，保�
             condition_tooltip = example_chamber_req  # 不可执行时补充说明。
             actor_rule = permission                  # 执行者选 any、leader、member 或 permission。
             actor_permission = approve_budget        # actor_rule = permission 时填写已授予的权限 ID。
-            actor_trigger = { always = yes }         # 对执行国检查单个 tag、has_country_flag 或 always。
+            actor_trigger = { always = yes }         # 执行国条件。可写原版 trigger 与 scripted trigger，ROOT 是执行国。
             target = none                            # none 或 country。普通有目标行动通过脚本发起。
             beneficiaries = leader                   # actor、leader、members 或 target。
             cost = {                                 # 费用。clear 清空继承费用。
@@ -197,7 +197,7 @@ default = {                                         # 全局默认母版，保�
                 payer = instance                     # 共用储备用 instance。国别资源用 actor 或 target。
                 amount = 20                          # 非负，精度与资源一致。
             }
-            effect = { add_prestige = 5 }            # 此版普通行动的直接效果。有效范围 -100..100。
+            effect = { add_prestige = 5 }            # 通过时的效果。可写原版 effect 与 scripted effect；改革也可改用 on_effect / off_effect。
             cooldown_days = 30                       # 行动冷却天数，0..36500。
             requires = { charter }                   # 已通过的前置改革。
             excludes = { rival }                     # 互斥改革。
@@ -214,7 +214,7 @@ default = {                                         # 全局默认母版，保�
         }
         greet_country = {                            # 有目标的脚本行动示例。
             target = country                         # 需要指定国家目标。
-            target_trigger = { tag = SAV }            # 在目标国家上检查单个原版条件。
+            target_trigger = { tag = SAV }            # 目标国条件。可写原版 trigger，ROOT 是目标国，FROM 是执行国。
             beneficiaries = target                   # 目标国家获得效果。
             effect = { add_prestige = 1 }             # 可省略效果或写 clear 清空。
             ui = no                                  # 普通带国家目标的行动由脚本执行。
@@ -260,7 +260,7 @@ default = {                                         # 全局默认母版，保�
                 compromise = {                       # 结局 ID。可用 clear 移除此选项。
                     name = example_compromise        # 结局名称。
                     tooltip = example_compromise_tip # 结局提示。
-                    effect = { add_prestige = 2 }     # 此结局的直接威望效果。
+                    effect = { add_prestige = 2 }     # 此结局的效果。可写原版 effect，也可调用 country_event。
                 }
             }
             ui = { region = actions_region }          # 是否在行动区显示。
