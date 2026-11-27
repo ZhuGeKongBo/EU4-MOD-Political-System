@@ -1,0 +1,2893 @@
+# Four independent windows using existing EU4 sprites.
+guiTypes = {
+    windowType = {
+        name = "pf075_style_page"
+        position = { x = -651 y = -370 }
+        size = { x = 96 y = 42 }
+        Orientation = "LOWER_RIGHT"
+        moveable = 0
+        fullScreen = no
+        guiButtonType = {
+            name = "ps_page_next"
+            position = { x = 0 y = 2 }
+            quadTextureSprite = "GFX_button_straight_96_32"
+            buttonFont = "vic_18"
+            buttonText = "PS_HUD_NEXT_PAGE"
+            tooltipText = "PS_HUD_NEXT_PAGE"
+            clicksound = click
+        }
+    }
+    windowType = {
+        name = "pf075_hre_panel"
+        position = { x = -305 y = -359 }
+        size = { x = 756 y = 719 }
+        Orientation = "CENTER"
+        moveable = 0
+        fullScreen = no
+        iconType = {
+            name = "panel_background"
+            position = { x = 0 y = 0 }
+            spriteType = "GFX_hre_bg"
+        }
+        guiButtonType = {
+            name = "panel_hover"
+            position = { x = 0 y = 0 }
+            quadTextureSprite = "GFX_pf075_transparent_hit"
+            buttonFont = "vic_18"
+            size = { x = 756 y = 719 }
+            no_clicksound = yes
+        }
+        instantTextBoxType = {
+            name = "panel_title"
+            position = { x = 120 y = 34 }
+            font = "vic_22"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 514 maxHeight = 29 alwaystransparent = yes
+        }
+        guiButtonType = {
+            name = "close_panel"
+            position = { x = 698 y = 69 }
+            quadTextureSprite = "GFX_closebutton2"
+            buttonFont = "vic_18"
+            tooltipText = "PS_CLOSE_TOOLTIP"
+            clicksound = close_window
+        }
+        instantTextBoxType = {
+            name = "leader_title"
+            position = { x = 56 y = 73 }
+            font = "vic_22"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 196 maxHeight = 25 alwaystransparent = yes
+        }
+        guiButtonType = {
+            name = "leader_flag"
+            position = { x = 106 y = 112 }
+            size = { x = 92 y = 92 }
+            quadTextureSprite = "GFX_shield_thin"
+            buttonFont = "vic_18"
+            no_clicksound = yes
+        }
+        guiButtonType = {
+            name = "leader_history_hover"
+            position = { x = 47 y = 200 }
+            size = { x = 207 y = 25 }
+            quadTextureSprite = "GFX_pf075_transparent_hit"
+            buttonFont = "vic_18"
+            tooltip = ""
+            tooltipText = ""
+            no_clicksound = yes
+        }
+        instantTextBoxType = {
+            name = "leader_name"
+            position = { x = 47 y = 200 }
+            font = "vic_22"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 207 maxHeight = 25 alwaystransparent = yes
+        }
+        instantTextBoxType = {
+            name = "member_heading"
+            position = { x = 432 y = 505 }
+            font = "vic_22"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 270 maxHeight = 27 alwaystransparent = yes
+        }
+        instantTextBoxType = {
+            name = "office_heading"
+            position = { x = 39 y = 223 }
+            font = "vic_18"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 198 maxHeight = 18 alwaystransparent = yes
+        }
+        instantTextBoxType = {
+            name = "action_heading"
+            position = { x = 380 y = 373 }
+            font = "vic_22"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = "pf075_actions"
+            maxWidth = 177 maxHeight = 26 alwaystransparent = yes
+        }
+        guiButtonType = {
+            name = "open_instances"
+            position = { x = 306 y = 674 }
+            quadTextureSprite = "GFX_button_straight_96_32"
+            buttonFont = "vic_18"
+            buttonText = "PS_SWITCH_INSTANCE"
+            tooltipText = "PS_SELECTOR_ROW_TOOLTIP"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "open_ballot"
+            position = { x = 75 y = 261 }
+            quadTextureSprite = "GFX_button_straight_152_32"
+            buttonFont = "vic_18"
+            buttonText = "pf075_vote"
+            tooltipText = "pf075_vote_tip"
+            clicksound = click
+        }
+        instantTextBoxType = {
+            name = "primary_resource_value"
+            position = { x = 362 y = 104 }
+            font = "vic_29"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 66 maxHeight = 31
+        }
+        instantTextBoxType = {
+            name = "primary_resource_growth"
+            position = { x = 430 y = 104 }
+            font = "vic_22"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 66 maxHeight = 31
+        }
+        instantTextBoxType = {
+            name = "register_name_00"
+            position = { x = 310 y = 272 }
+            font = "vic_18"
+            format = left
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 101 maxHeight = 33 alwaystransparent = yes
+        }
+        instantTextBoxType = {
+            name = "register_value_00"
+            position = { x = 413 y = 272 }
+            font = "vic_18"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 99 maxHeight = 33
+        }
+        instantTextBoxType = {
+            name = "register_name_01"
+            position = { x = 310 y = 306 }
+            font = "vic_18"
+            format = left
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 101 maxHeight = 33 alwaystransparent = yes
+        }
+        instantTextBoxType = {
+            name = "register_value_01"
+            position = { x = 413 y = 306 }
+            font = "vic_18"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 99 maxHeight = 33
+        }
+        scrollbarType = {
+            name = "register_scroll"
+            slider = "register_thumb" track = "register_track" leftbutton = "register_down" rightbutton = "register_up"
+            position = { x = 516 y = 270 }
+            size = { x = 16 y = 69 }
+            priority = 100 borderSize = { x = 12 y = 12 } maxValue = 1 minValue = 0 stepSize = 1 startValue = 0 horizontal = 0
+            guiButtonType = { name = "register_thumb" quadTextureSprite = "GFX_scroll_drager" position = { x = 0 y = 0 } }
+            guiButtonType = { name = "register_track" quadTextureSprite = "GFX_scroll_track" position = { x = 12 y = 12 } }
+            guiButtonType = { name = "register_up" parent = "register_thumb" quadTextureSprite = "GFX_scroll_up" position = { x = 0 y = 0 } }
+            guiButtonType = { name = "register_down" parent = "register_thumb" quadTextureSprite = "GFX_scroll_down" position = { x = 0 y = 57 } }
+        }
+        guiButtonType = {
+            name = "member_flag_00"
+            position = { x = 439 y = 548 }
+            size = { x = 32 y = 32 }
+            quadTextureSprite = "GFX_shield_small"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "member_flag_01"
+            position = { x = 489 y = 548 }
+            size = { x = 32 y = 32 }
+            quadTextureSprite = "GFX_shield_small"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "member_flag_02"
+            position = { x = 539 y = 548 }
+            size = { x = 32 y = 32 }
+            quadTextureSprite = "GFX_shield_small"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "member_flag_03"
+            position = { x = 589 y = 548 }
+            size = { x = 32 y = 32 }
+            quadTextureSprite = "GFX_shield_small"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "member_flag_04"
+            position = { x = 639 y = 548 }
+            size = { x = 32 y = 32 }
+            quadTextureSprite = "GFX_shield_small"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "member_flag_05"
+            position = { x = 439 y = 607 }
+            size = { x = 32 y = 32 }
+            quadTextureSprite = "GFX_shield_small"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "member_flag_06"
+            position = { x = 489 y = 607 }
+            size = { x = 32 y = 32 }
+            quadTextureSprite = "GFX_shield_small"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "member_flag_07"
+            position = { x = 539 y = 607 }
+            size = { x = 32 y = 32 }
+            quadTextureSprite = "GFX_shield_small"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "member_flag_08"
+            position = { x = 589 y = 607 }
+            size = { x = 32 y = 32 }
+            quadTextureSprite = "GFX_shield_small"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "member_flag_09"
+            position = { x = 639 y = 607 }
+            size = { x = 32 y = 32 }
+            quadTextureSprite = "GFX_shield_small"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        scrollbarType = {
+            name = "membership_scroll"
+            slider = "membership_thumb" track = "membership_track" leftbutton = "membership_down" rightbutton = "membership_up"
+            position = { x = 684 y = 539 }
+            size = { x = 16 y = 108 }
+            priority = 100 borderSize = { x = 12 y = 12 } maxValue = 1 minValue = 0 stepSize = 1 startValue = 0 horizontal = 0
+            guiButtonType = { name = "membership_thumb" quadTextureSprite = "GFX_scroll_drager" position = { x = 0 y = 0 } }
+            guiButtonType = { name = "membership_track" quadTextureSprite = "GFX_scroll_track" position = { x = 12 y = 12 } }
+            guiButtonType = { name = "membership_up" parent = "membership_thumb" quadTextureSprite = "GFX_scroll_up" position = { x = 0 y = 0 } }
+            guiButtonType = { name = "membership_down" parent = "membership_thumb" quadTextureSprite = "GFX_scroll_down" position = { x = 0 y = 96 } }
+        }
+        guiButtonType = {
+            name = "office_group_hit_00"
+            position = { x = 39 y = 299 }
+            size = { x = 198 y = 14 }
+            quadTextureSprite = "GFX_pf075_transparent_hit"
+            buttonFont = "vic_18"
+            tooltip = ""
+            tooltipText = ""
+            no_clicksound = yes
+        }
+        instantTextBoxType = {
+            name = "office_group_title_00"
+            position = { x = 39 y = 299 }
+            font = "garamond_14_bold"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 198 maxHeight = 14 alwaystransparent = yes
+        }
+        guiButtonType = {
+            name = "office_flag_00"
+            position = { x = 39 y = 313 }
+            size = { x = 64 y = 64 }
+            quadTextureSprite = "GFX_shield_medium"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "elector_support_00"
+            position = { x = 44 y = 361 }
+            size = { x = 24 y = 24 }
+            quadTextureSprite = "GFX_shield_small"
+            buttonFont = "vic_18"
+            tooltip = ""
+            tooltipText = ""
+            clicksound = click
+        }
+        instantTextBoxType = {
+            name = "elector_score_00"
+            position = { x = 103 y = 357 }
+            font = "vic_18"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 35 maxHeight = 20
+        }
+        guiButtonType = {
+            name = "office_flag_01"
+            position = { x = 138 y = 313 }
+            size = { x = 64 y = 64 }
+            quadTextureSprite = "GFX_shield_medium"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "elector_support_01"
+            position = { x = 143 y = 361 }
+            size = { x = 24 y = 24 }
+            quadTextureSprite = "GFX_shield_small"
+            buttonFont = "vic_18"
+            tooltip = ""
+            tooltipText = ""
+            clicksound = click
+        }
+        instantTextBoxType = {
+            name = "elector_score_01"
+            position = { x = 202 y = 357 }
+            font = "vic_18"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 35 maxHeight = 20
+        }
+        guiButtonType = {
+            name = "office_group_hit_01"
+            position = { x = 39 y = 386 }
+            size = { x = 198 y = 14 }
+            quadTextureSprite = "GFX_pf075_transparent_hit"
+            buttonFont = "vic_18"
+            tooltip = ""
+            tooltipText = ""
+            no_clicksound = yes
+        }
+        instantTextBoxType = {
+            name = "office_group_title_01"
+            position = { x = 39 y = 386 }
+            font = "garamond_14_bold"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 198 maxHeight = 14 alwaystransparent = yes
+        }
+        guiButtonType = {
+            name = "office_flag_02"
+            position = { x = 39 y = 400 }
+            size = { x = 64 y = 64 }
+            quadTextureSprite = "GFX_shield_medium"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "elector_support_02"
+            position = { x = 44 y = 448 }
+            size = { x = 24 y = 24 }
+            quadTextureSprite = "GFX_shield_small"
+            buttonFont = "vic_18"
+            tooltip = ""
+            tooltipText = ""
+            clicksound = click
+        }
+        instantTextBoxType = {
+            name = "elector_score_02"
+            position = { x = 103 y = 444 }
+            font = "vic_18"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 35 maxHeight = 20
+        }
+        guiButtonType = {
+            name = "office_flag_03"
+            position = { x = 138 y = 400 }
+            size = { x = 64 y = 64 }
+            quadTextureSprite = "GFX_shield_medium"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "elector_support_03"
+            position = { x = 143 y = 448 }
+            size = { x = 24 y = 24 }
+            quadTextureSprite = "GFX_shield_small"
+            buttonFont = "vic_18"
+            tooltip = ""
+            tooltipText = ""
+            clicksound = click
+        }
+        instantTextBoxType = {
+            name = "elector_score_03"
+            position = { x = 202 y = 444 }
+            font = "vic_18"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 35 maxHeight = 20
+        }
+        guiButtonType = {
+            name = "office_group_hit_02"
+            position = { x = 39 y = 474 }
+            size = { x = 198 y = 14 }
+            quadTextureSprite = "GFX_pf075_transparent_hit"
+            buttonFont = "vic_18"
+            tooltip = ""
+            tooltipText = ""
+            no_clicksound = yes
+        }
+        instantTextBoxType = {
+            name = "office_group_title_02"
+            position = { x = 39 y = 474 }
+            font = "garamond_14_bold"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 198 maxHeight = 14 alwaystransparent = yes
+        }
+        guiButtonType = {
+            name = "office_flag_04"
+            position = { x = 39 y = 488 }
+            size = { x = 64 y = 64 }
+            quadTextureSprite = "GFX_shield_medium"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "elector_support_04"
+            position = { x = 44 y = 536 }
+            size = { x = 24 y = 24 }
+            quadTextureSprite = "GFX_shield_small"
+            buttonFont = "vic_18"
+            tooltip = ""
+            tooltipText = ""
+            clicksound = click
+        }
+        instantTextBoxType = {
+            name = "elector_score_04"
+            position = { x = 103 y = 532 }
+            font = "vic_18"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 35 maxHeight = 20
+        }
+        guiButtonType = {
+            name = "office_flag_05"
+            position = { x = 138 y = 488 }
+            size = { x = 64 y = 64 }
+            quadTextureSprite = "GFX_shield_medium"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "elector_support_05"
+            position = { x = 143 y = 536 }
+            size = { x = 24 y = 24 }
+            quadTextureSprite = "GFX_shield_small"
+            buttonFont = "vic_18"
+            tooltip = ""
+            tooltipText = ""
+            clicksound = click
+        }
+        instantTextBoxType = {
+            name = "elector_score_05"
+            position = { x = 202 y = 532 }
+            font = "vic_18"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 35 maxHeight = 20
+        }
+        guiButtonType = {
+            name = "office_group_hit_03"
+            position = { x = 39 y = 562 }
+            size = { x = 198 y = 14 }
+            quadTextureSprite = "GFX_pf075_transparent_hit"
+            buttonFont = "vic_18"
+            tooltip = ""
+            tooltipText = ""
+            no_clicksound = yes
+        }
+        instantTextBoxType = {
+            name = "office_group_title_03"
+            position = { x = 39 y = 562 }
+            font = "garamond_14_bold"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 198 maxHeight = 14 alwaystransparent = yes
+        }
+        guiButtonType = {
+            name = "office_flag_06"
+            position = { x = 39 y = 576 }
+            size = { x = 64 y = 64 }
+            quadTextureSprite = "GFX_shield_medium"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "elector_support_06"
+            position = { x = 44 y = 624 }
+            size = { x = 24 y = 24 }
+            quadTextureSprite = "GFX_shield_small"
+            buttonFont = "vic_18"
+            tooltip = ""
+            tooltipText = ""
+            clicksound = click
+        }
+        instantTextBoxType = {
+            name = "elector_score_06"
+            position = { x = 103 y = 620 }
+            font = "vic_18"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 35 maxHeight = 20
+        }
+        guiButtonType = {
+            name = "office_flag_07"
+            position = { x = 138 y = 576 }
+            size = { x = 64 y = 64 }
+            quadTextureSprite = "GFX_shield_medium"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "elector_support_07"
+            position = { x = 143 y = 624 }
+            size = { x = 24 y = 24 }
+            quadTextureSprite = "GFX_shield_small"
+            buttonFont = "vic_18"
+            tooltip = ""
+            tooltipText = ""
+            clicksound = click
+        }
+        instantTextBoxType = {
+            name = "elector_score_07"
+            position = { x = 202 y = 620 }
+            font = "vic_18"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 35 maxHeight = 20
+        }
+        scrollbarType = {
+            name = "offices_scroll"
+            slider = "offices_thumb" track = "offices_track" leftbutton = "offices_down" rightbutton = "offices_up"
+            position = { x = 241 y = 299 }
+            size = { x = 16 y = 351 }
+            priority = 100 borderSize = { x = 12 y = 12 } maxValue = 1 minValue = 0 stepSize = 1 startValue = 0 horizontal = 0
+            guiButtonType = { name = "offices_thumb" quadTextureSprite = "GFX_scroll_drager" position = { x = 0 y = 0 } }
+            guiButtonType = { name = "offices_track" quadTextureSprite = "GFX_scroll_track" position = { x = 12 y = 12 } }
+            guiButtonType = { name = "offices_up" parent = "offices_thumb" quadTextureSprite = "GFX_scroll_up" position = { x = 0 y = 0 } }
+            guiButtonType = { name = "offices_down" parent = "offices_thumb" quadTextureSprite = "GFX_scroll_down" position = { x = 0 y = 339 } }
+        }
+        guiButtonType = {
+            name = "action_button_00"
+            position = { x = 311 y = 400 }
+            quadTextureSprite = "GFX_button_straight_152_32"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "action_readonly_00"
+            position = { x = 311 y = 400 }
+            quadTextureSprite = "GFX_button_straight_152_32"
+            buttonFont = "vic_18"
+            no_clicksound = yes
+        }
+        guiButtonType = {
+            name = "action_seal_00"
+            position = { x = 455 y = 392 }
+            quadTextureSprite = "GFX_decree_button_seal"
+            buttonFont = "vic_18"
+            no_clicksound = yes
+            alwaystransparent = yes
+        }
+        guiButtonType = {
+            name = "action_mark_00"
+            position = { x = 467 y = 404 }
+            quadTextureSprite = "GFX_decree_button_check"
+            buttonFont = "vic_18"
+            no_clicksound = yes
+            alwaystransparent = yes
+        }
+        instantTextBoxType = {
+            name = "action_name_00"
+            position = { x = 314 y = 403 }
+            font = "vic_18"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 146 maxHeight = 25 alwaystransparent = yes
+        }
+        guiButtonType = {
+            name = "action_button_01"
+            position = { x = 311 y = 430 }
+            quadTextureSprite = "GFX_button_straight_152_32"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "action_readonly_01"
+            position = { x = 311 y = 430 }
+            quadTextureSprite = "GFX_button_straight_152_32"
+            buttonFont = "vic_18"
+            no_clicksound = yes
+        }
+        guiButtonType = {
+            name = "action_seal_01"
+            position = { x = 455 y = 422 }
+            quadTextureSprite = "GFX_decree_button_seal"
+            buttonFont = "vic_18"
+            no_clicksound = yes
+            alwaystransparent = yes
+        }
+        guiButtonType = {
+            name = "action_mark_01"
+            position = { x = 467 y = 434 }
+            quadTextureSprite = "GFX_decree_button_check"
+            buttonFont = "vic_18"
+            no_clicksound = yes
+            alwaystransparent = yes
+        }
+        instantTextBoxType = {
+            name = "action_name_01"
+            position = { x = 314 y = 433 }
+            font = "vic_18"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 146 maxHeight = 25 alwaystransparent = yes
+        }
+        guiButtonType = {
+            name = "action_button_02"
+            position = { x = 311 y = 460 }
+            quadTextureSprite = "GFX_button_straight_152_32"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "action_readonly_02"
+            position = { x = 311 y = 460 }
+            quadTextureSprite = "GFX_button_straight_152_32"
+            buttonFont = "vic_18"
+            no_clicksound = yes
+        }
+        guiButtonType = {
+            name = "action_seal_02"
+            position = { x = 455 y = 452 }
+            quadTextureSprite = "GFX_decree_button_seal"
+            buttonFont = "vic_18"
+            no_clicksound = yes
+            alwaystransparent = yes
+        }
+        guiButtonType = {
+            name = "action_mark_02"
+            position = { x = 467 y = 464 }
+            quadTextureSprite = "GFX_decree_button_check"
+            buttonFont = "vic_18"
+            no_clicksound = yes
+            alwaystransparent = yes
+        }
+        instantTextBoxType = {
+            name = "action_name_02"
+            position = { x = 314 y = 463 }
+            font = "vic_18"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 146 maxHeight = 25 alwaystransparent = yes
+        }
+        scrollbarType = {
+            name = "action_scroll"
+            slider = "action_thumb" track = "action_track" leftbutton = "action_down" rightbutton = "action_up"
+            position = { x = 516 y = 397 }
+            size = { x = 16 y = 96 }
+            priority = 100 borderSize = { x = 12 y = 12 } maxValue = 1 minValue = 0 stepSize = 1 startValue = 0 horizontal = 0
+            guiButtonType = { name = "action_thumb" quadTextureSprite = "GFX_scroll_drager" position = { x = 0 y = 0 } }
+            guiButtonType = { name = "action_track" quadTextureSprite = "GFX_scroll_track" position = { x = 12 y = 12 } }
+            guiButtonType = { name = "action_up" parent = "action_thumb" quadTextureSprite = "GFX_scroll_up" position = { x = 0 y = 0 } }
+            guiButtonType = { name = "action_down" parent = "action_thumb" quadTextureSprite = "GFX_scroll_down" position = { x = 0 y = 84 } }
+        }
+    }
+
+    windowType = {
+        name = "pf075_celestial_panel"
+        position = { x = -317 y = -360 }
+        size = { x = 635 y = 720 }
+        Orientation = "CENTER"
+        moveable = 0
+        fullScreen = no
+        iconType = {
+            name = "panel_background"
+            position = { x = 0 y = 0 }
+            spriteType = "GFX_eoc_bg_dom"
+        }
+        guiButtonType = {
+            name = "panel_hover"
+            position = { x = 0 y = 0 }
+            quadTextureSprite = "GFX_pf075_transparent_hit"
+            buttonFont = "vic_18"
+            size = { x = 635 y = 720 }
+            no_clicksound = yes
+        }
+        instantTextBoxType = {
+            name = "panel_title"
+            position = { x = 70 y = 36 }
+            font = "vic_22"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 492 maxHeight = 29 alwaystransparent = yes
+        }
+        guiButtonType = {
+            name = "close_panel"
+            position = { x = 590 y = 57 }
+            quadTextureSprite = "GFX_closebutton2"
+            buttonFont = "vic_18"
+            tooltipText = "PS_CLOSE_TOOLTIP"
+            clicksound = close_window
+        }
+        instantTextBoxType = {
+            name = "leader_title"
+            position = { x = 102 y = 77 }
+            font = "vic_22"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 241 maxHeight = 25 alwaystransparent = yes
+        }
+        guiButtonType = {
+            name = "leader_flag"
+            position = { x = 162 y = 117 }
+            size = { x = 92 y = 92 }
+            quadTextureSprite = "GFX_shield_thin"
+            buttonFont = "vic_18"
+            no_clicksound = yes
+        }
+        guiButtonType = {
+            name = "leader_history_hover"
+            position = { x = 101 y = 248 }
+            size = { x = 243 y = 26 }
+            quadTextureSprite = "GFX_pf075_transparent_hit"
+            buttonFont = "vic_18"
+            tooltip = ""
+            tooltipText = ""
+            no_clicksound = yes
+        }
+        instantTextBoxType = {
+            name = "leader_name"
+            position = { x = 101 y = 248 }
+            font = "vic_22"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 243 maxHeight = 26 alwaystransparent = yes
+        }
+        instantTextBoxType = {
+            name = "member_heading"
+            position = { x = 362 y = 77 }
+            font = "vic_22"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 215 maxHeight = 27 alwaystransparent = yes
+        }
+        instantTextBoxType = {
+            name = "office_heading"
+            position = { x = 70 y = 296 }
+            font = "vic_18"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 258 maxHeight = 18 alwaystransparent = yes
+        }
+        instantTextBoxType = {
+            name = "action_heading"
+            position = { x = 363 y = 296 }
+            font = "vic_22"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = "pf075_actions"
+            maxWidth = 177 maxHeight = 26 alwaystransparent = yes
+        }
+        guiButtonType = {
+            name = "open_instances"
+            position = { x = 116 y = 655 }
+            quadTextureSprite = "GFX_button_straight_96_32"
+            buttonFont = "vic_18"
+            buttonText = "PS_SWITCH_INSTANCE"
+            tooltipText = "PS_SELECTOR_ROW_TOOLTIP"
+            clicksound = click
+        }
+        instantTextBoxType = {
+            name = "primary_resource_value"
+            position = { x = 254 y = 130 }
+            font = "vic_29"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 78 maxHeight = 31
+        }
+        instantTextBoxType = {
+            name = "primary_resource_growth"
+            position = { x = 254 y = 170 }
+            font = "vic_22"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 78 maxHeight = 31
+        }
+        instantTextBoxType = {
+            name = "register_name_00"
+            position = { x = 369 y = 578 }
+            font = "vic_18"
+            format = left
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 107 maxHeight = 29 alwaystransparent = yes
+        }
+        instantTextBoxType = {
+            name = "register_value_00"
+            position = { x = 479 y = 578 }
+            font = "vic_18"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 71 maxHeight = 29
+        }
+        instantTextBoxType = {
+            name = "register_name_01"
+            position = { x = 369 y = 608 }
+            font = "vic_18"
+            format = left
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 107 maxHeight = 29 alwaystransparent = yes
+        }
+        instantTextBoxType = {
+            name = "register_value_01"
+            position = { x = 479 y = 608 }
+            font = "vic_18"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 71 maxHeight = 29
+        }
+        scrollbarType = {
+            name = "register_scroll"
+            slider = "register_thumb" track = "register_track" leftbutton = "register_down" rightbutton = "register_up"
+            position = { x = 554 y = 576 }
+            size = { x = 16 y = 61 }
+            priority = 100 borderSize = { x = 12 y = 12 } maxValue = 1 minValue = 0 stepSize = 1 startValue = 0 horizontal = 0
+            guiButtonType = { name = "register_thumb" quadTextureSprite = "GFX_scroll_drager" position = { x = 0 y = 0 } }
+            guiButtonType = { name = "register_track" quadTextureSprite = "GFX_scroll_track" position = { x = 12 y = 12 } }
+            guiButtonType = { name = "register_up" parent = "register_thumb" quadTextureSprite = "GFX_scroll_up" position = { x = 0 y = 0 } }
+            guiButtonType = { name = "register_down" parent = "register_thumb" quadTextureSprite = "GFX_scroll_down" position = { x = 0 y = 49 } }
+        }
+        guiButtonType = {
+            name = "member_flag_00"
+            position = { x = 361 y = 130 }
+            size = { x = 32 y = 32 }
+            quadTextureSprite = "GFX_shield_small"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "member_flag_01"
+            position = { x = 399 y = 130 }
+            size = { x = 32 y = 32 }
+            quadTextureSprite = "GFX_shield_small"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "member_flag_02"
+            position = { x = 437 y = 130 }
+            size = { x = 32 y = 32 }
+            quadTextureSprite = "GFX_shield_small"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "member_flag_03"
+            position = { x = 475 y = 130 }
+            size = { x = 32 y = 32 }
+            quadTextureSprite = "GFX_shield_small"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "member_flag_04"
+            position = { x = 513 y = 130 }
+            size = { x = 32 y = 32 }
+            quadTextureSprite = "GFX_shield_small"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "member_flag_05"
+            position = { x = 361 y = 184 }
+            size = { x = 32 y = 32 }
+            quadTextureSprite = "GFX_shield_small"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "member_flag_06"
+            position = { x = 399 y = 184 }
+            size = { x = 32 y = 32 }
+            quadTextureSprite = "GFX_shield_small"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "member_flag_07"
+            position = { x = 437 y = 184 }
+            size = { x = 32 y = 32 }
+            quadTextureSprite = "GFX_shield_small"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "member_flag_08"
+            position = { x = 475 y = 184 }
+            size = { x = 32 y = 32 }
+            quadTextureSprite = "GFX_shield_small"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "member_flag_09"
+            position = { x = 513 y = 184 }
+            size = { x = 32 y = 32 }
+            quadTextureSprite = "GFX_shield_small"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "member_flag_10"
+            position = { x = 361 y = 238 }
+            size = { x = 32 y = 32 }
+            quadTextureSprite = "GFX_shield_small"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "member_flag_11"
+            position = { x = 399 y = 238 }
+            size = { x = 32 y = 32 }
+            quadTextureSprite = "GFX_shield_small"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "member_flag_12"
+            position = { x = 437 y = 238 }
+            size = { x = 32 y = 32 }
+            quadTextureSprite = "GFX_shield_small"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "member_flag_13"
+            position = { x = 475 y = 238 }
+            size = { x = 32 y = 32 }
+            quadTextureSprite = "GFX_shield_small"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "member_flag_14"
+            position = { x = 513 y = 238 }
+            size = { x = 32 y = 32 }
+            quadTextureSprite = "GFX_shield_small"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        scrollbarType = {
+            name = "membership_scroll"
+            slider = "membership_thumb" track = "membership_track" leftbutton = "membership_down" rightbutton = "membership_up"
+            position = { x = 552 y = 123 }
+            size = { x = 16 y = 152 }
+            priority = 100 borderSize = { x = 12 y = 12 } maxValue = 1 minValue = 0 stepSize = 1 startValue = 0 horizontal = 0
+            guiButtonType = { name = "membership_thumb" quadTextureSprite = "GFX_scroll_drager" position = { x = 0 y = 0 } }
+            guiButtonType = { name = "membership_track" quadTextureSprite = "GFX_scroll_track" position = { x = 12 y = 12 } }
+            guiButtonType = { name = "membership_up" parent = "membership_thumb" quadTextureSprite = "GFX_scroll_up" position = { x = 0 y = 0 } }
+            guiButtonType = { name = "membership_down" parent = "membership_thumb" quadTextureSprite = "GFX_scroll_down" position = { x = 0 y = 140 } }
+        }
+        guiButtonType = {
+            name = "office_group_hit_00"
+            position = { x = 61 y = 331 }
+            size = { x = 259 y = 14 }
+            quadTextureSprite = "GFX_pf075_transparent_hit"
+            buttonFont = "vic_18"
+            tooltip = ""
+            tooltipText = ""
+            no_clicksound = yes
+        }
+        instantTextBoxType = {
+            name = "office_group_title_00"
+            position = { x = 61 y = 331 }
+            font = "garamond_14_bold"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 259 maxHeight = 14 alwaystransparent = yes
+        }
+        guiButtonType = {
+            name = "office_flag_00"
+            position = { x = 93 y = 345 }
+            size = { x = 64 y = 64 }
+            quadTextureSprite = "GFX_shield_medium"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "office_flag_01"
+            position = { x = 223 y = 345 }
+            size = { x = 64 y = 64 }
+            quadTextureSprite = "GFX_shield_medium"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "office_group_hit_01"
+            position = { x = 61 y = 411 }
+            size = { x = 259 y = 14 }
+            quadTextureSprite = "GFX_pf075_transparent_hit"
+            buttonFont = "vic_18"
+            tooltip = ""
+            tooltipText = ""
+            no_clicksound = yes
+        }
+        instantTextBoxType = {
+            name = "office_group_title_01"
+            position = { x = 61 y = 411 }
+            font = "garamond_14_bold"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 259 maxHeight = 14 alwaystransparent = yes
+        }
+        guiButtonType = {
+            name = "office_flag_02"
+            position = { x = 93 y = 425 }
+            size = { x = 64 y = 64 }
+            quadTextureSprite = "GFX_shield_medium"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "office_flag_03"
+            position = { x = 223 y = 425 }
+            size = { x = 64 y = 64 }
+            quadTextureSprite = "GFX_shield_medium"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "office_group_hit_02"
+            position = { x = 61 y = 492 }
+            size = { x = 259 y = 14 }
+            quadTextureSprite = "GFX_pf075_transparent_hit"
+            buttonFont = "vic_18"
+            tooltip = ""
+            tooltipText = ""
+            no_clicksound = yes
+        }
+        instantTextBoxType = {
+            name = "office_group_title_02"
+            position = { x = 61 y = 492 }
+            font = "garamond_14_bold"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 259 maxHeight = 14 alwaystransparent = yes
+        }
+        guiButtonType = {
+            name = "office_flag_04"
+            position = { x = 93 y = 506 }
+            size = { x = 64 y = 64 }
+            quadTextureSprite = "GFX_shield_medium"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "office_flag_05"
+            position = { x = 223 y = 506 }
+            size = { x = 64 y = 64 }
+            quadTextureSprite = "GFX_shield_medium"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "office_group_hit_03"
+            position = { x = 61 y = 572 }
+            size = { x = 259 y = 14 }
+            quadTextureSprite = "GFX_pf075_transparent_hit"
+            buttonFont = "vic_18"
+            tooltip = ""
+            tooltipText = ""
+            no_clicksound = yes
+        }
+        instantTextBoxType = {
+            name = "office_group_title_03"
+            position = { x = 61 y = 572 }
+            font = "garamond_14_bold"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 259 maxHeight = 14 alwaystransparent = yes
+        }
+        guiButtonType = {
+            name = "office_flag_06"
+            position = { x = 93 y = 586 }
+            size = { x = 64 y = 64 }
+            quadTextureSprite = "GFX_shield_medium"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "office_flag_07"
+            position = { x = 223 y = 586 }
+            size = { x = 64 y = 64 }
+            quadTextureSprite = "GFX_shield_medium"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        scrollbarType = {
+            name = "offices_scroll"
+            slider = "offices_thumb" track = "offices_track" leftbutton = "offices_down" rightbutton = "offices_up"
+            position = { x = 324 y = 331 }
+            size = { x = 16 y = 322 }
+            priority = 100 borderSize = { x = 12 y = 12 } maxValue = 1 minValue = 0 stepSize = 1 startValue = 0 horizontal = 0
+            guiButtonType = { name = "offices_thumb" quadTextureSprite = "GFX_scroll_drager" position = { x = 0 y = 0 } }
+            guiButtonType = { name = "offices_track" quadTextureSprite = "GFX_scroll_track" position = { x = 12 y = 12 } }
+            guiButtonType = { name = "offices_up" parent = "offices_thumb" quadTextureSprite = "GFX_scroll_up" position = { x = 0 y = 0 } }
+            guiButtonType = { name = "offices_down" parent = "offices_thumb" quadTextureSprite = "GFX_scroll_down" position = { x = 0 y = 310 } }
+        }
+        guiButtonType = {
+            name = "action_button_00"
+            position = { x = 370 y = 350 }
+            quadTextureSprite = "GFX_button_straight_152_32"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "action_readonly_00"
+            position = { x = 370 y = 350 }
+            quadTextureSprite = "GFX_button_straight_152_32"
+            buttonFont = "vic_18"
+            no_clicksound = yes
+        }
+        guiButtonType = {
+            name = "action_seal_00"
+            position = { x = 514 y = 342 }
+            quadTextureSprite = "GFX_decree_button_seal"
+            buttonFont = "vic_18"
+            no_clicksound = yes
+            alwaystransparent = yes
+        }
+        guiButtonType = {
+            name = "action_mark_00"
+            position = { x = 526 y = 354 }
+            quadTextureSprite = "GFX_decree_button_check"
+            buttonFont = "vic_18"
+            no_clicksound = yes
+            alwaystransparent = yes
+        }
+        instantTextBoxType = {
+            name = "action_name_00"
+            position = { x = 373 y = 353 }
+            font = "vic_18"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 146 maxHeight = 25 alwaystransparent = yes
+        }
+        guiButtonType = {
+            name = "action_button_01"
+            position = { x = 370 y = 408 }
+            quadTextureSprite = "GFX_button_straight_152_32"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "action_readonly_01"
+            position = { x = 370 y = 408 }
+            quadTextureSprite = "GFX_button_straight_152_32"
+            buttonFont = "vic_18"
+            no_clicksound = yes
+        }
+        guiButtonType = {
+            name = "action_seal_01"
+            position = { x = 514 y = 400 }
+            quadTextureSprite = "GFX_decree_button_seal"
+            buttonFont = "vic_18"
+            no_clicksound = yes
+            alwaystransparent = yes
+        }
+        guiButtonType = {
+            name = "action_mark_01"
+            position = { x = 526 y = 412 }
+            quadTextureSprite = "GFX_decree_button_check"
+            buttonFont = "vic_18"
+            no_clicksound = yes
+            alwaystransparent = yes
+        }
+        instantTextBoxType = {
+            name = "action_name_01"
+            position = { x = 373 y = 411 }
+            font = "vic_18"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 146 maxHeight = 25 alwaystransparent = yes
+        }
+        guiButtonType = {
+            name = "action_button_02"
+            position = { x = 370 y = 466 }
+            quadTextureSprite = "GFX_button_straight_152_32"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "action_readonly_02"
+            position = { x = 370 y = 466 }
+            quadTextureSprite = "GFX_button_straight_152_32"
+            buttonFont = "vic_18"
+            no_clicksound = yes
+        }
+        guiButtonType = {
+            name = "action_seal_02"
+            position = { x = 514 y = 458 }
+            quadTextureSprite = "GFX_decree_button_seal"
+            buttonFont = "vic_18"
+            no_clicksound = yes
+            alwaystransparent = yes
+        }
+        guiButtonType = {
+            name = "action_mark_02"
+            position = { x = 526 y = 470 }
+            quadTextureSprite = "GFX_decree_button_check"
+            buttonFont = "vic_18"
+            no_clicksound = yes
+            alwaystransparent = yes
+        }
+        instantTextBoxType = {
+            name = "action_name_02"
+            position = { x = 373 y = 469 }
+            font = "vic_18"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 146 maxHeight = 25 alwaystransparent = yes
+        }
+        guiButtonType = {
+            name = "action_button_03"
+            position = { x = 370 y = 524 }
+            quadTextureSprite = "GFX_button_straight_152_32"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "action_readonly_03"
+            position = { x = 370 y = 524 }
+            quadTextureSprite = "GFX_button_straight_152_32"
+            buttonFont = "vic_18"
+            no_clicksound = yes
+        }
+        guiButtonType = {
+            name = "action_seal_03"
+            position = { x = 514 y = 516 }
+            quadTextureSprite = "GFX_decree_button_seal"
+            buttonFont = "vic_18"
+            no_clicksound = yes
+            alwaystransparent = yes
+        }
+        guiButtonType = {
+            name = "action_mark_03"
+            position = { x = 526 y = 528 }
+            quadTextureSprite = "GFX_decree_button_check"
+            buttonFont = "vic_18"
+            no_clicksound = yes
+            alwaystransparent = yes
+        }
+        instantTextBoxType = {
+            name = "action_name_03"
+            position = { x = 373 y = 527 }
+            font = "vic_18"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 146 maxHeight = 25 alwaystransparent = yes
+        }
+        scrollbarType = {
+            name = "action_scroll"
+            slider = "action_thumb" track = "action_track" leftbutton = "action_down" rightbutton = "action_up"
+            position = { x = 554 y = 347 }
+            size = { x = 16 y = 210 }
+            priority = 100 borderSize = { x = 12 y = 12 } maxValue = 1 minValue = 0 stepSize = 1 startValue = 0 horizontal = 0
+            guiButtonType = { name = "action_thumb" quadTextureSprite = "GFX_scroll_drager" position = { x = 0 y = 0 } }
+            guiButtonType = { name = "action_track" quadTextureSprite = "GFX_scroll_track" position = { x = 12 y = 12 } }
+            guiButtonType = { name = "action_up" parent = "action_thumb" quadTextureSprite = "GFX_scroll_up" position = { x = 0 y = 0 } }
+            guiButtonType = { name = "action_down" parent = "action_thumb" quadTextureSprite = "GFX_scroll_down" position = { x = 0 y = 198 } }
+        }
+    }
+
+    windowType = {
+        name = "pf075_papacy_panel"
+        position = { x = -274 y = -345 }
+        size = { x = 548 y = 691 }
+        Orientation = "CENTER"
+        moveable = 0
+        fullScreen = no
+        iconType = {
+            name = "panel_background"
+            position = { x = 0 y = 0 }
+            spriteType = "GFX_papacy_bg"
+        }
+        guiButtonType = {
+            name = "panel_hover"
+            position = { x = 0 y = 0 }
+            quadTextureSprite = "GFX_pf075_transparent_hit"
+            buttonFont = "vic_18"
+            size = { x = 548 y = 691 }
+            no_clicksound = yes
+        }
+        instantTextBoxType = {
+            name = "panel_title"
+            position = { x = 47 y = 33 }
+            font = "vic_22"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 442 maxHeight = 29 alwaystransparent = yes
+        }
+        guiButtonType = {
+            name = "close_panel"
+            position = { x = 492 y = 61 }
+            quadTextureSprite = "GFX_closebutton2"
+            buttonFont = "vic_18"
+            tooltipText = "PS_CLOSE_TOOLTIP"
+            clicksound = close_window
+        }
+        instantTextBoxType = {
+            name = "leader_title"
+            position = { x = 56 y = 104 }
+            font = "vic_22"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 187 maxHeight = 25 alwaystransparent = yes
+        }
+        guiButtonType = {
+            name = "leader_flag"
+            position = { x = 107 y = 143 }
+            size = { x = 92 y = 92 }
+            quadTextureSprite = "GFX_shield_thin"
+            buttonFont = "vic_18"
+            no_clicksound = yes
+        }
+        guiButtonType = {
+            name = "leader_history_hover"
+            position = { x = 47 y = 240 }
+            size = { x = 205 y = 25 }
+            quadTextureSprite = "GFX_pf075_transparent_hit"
+            buttonFont = "vic_18"
+            tooltip = ""
+            tooltipText = ""
+            no_clicksound = yes
+        }
+        instantTextBoxType = {
+            name = "leader_name"
+            position = { x = 47 y = 240 }
+            font = "vic_22"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 205 maxHeight = 25 alwaystransparent = yes
+        }
+        instantTextBoxType = {
+            name = "member_heading"
+            position = { x = 268 y = 211 }
+            font = "vic_22"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 226 maxHeight = 27 alwaystransparent = yes
+        }
+        instantTextBoxType = {
+            name = "office_heading"
+            position = { x = 263 y = 319 }
+            font = "vic_18"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 231 maxHeight = 18 alwaystransparent = yes
+        }
+        instantTextBoxType = {
+            name = "action_heading"
+            position = { x = 52 y = 306 }
+            font = "vic_22"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = "pf075_actions"
+            maxWidth = 177 maxHeight = 26 alwaystransparent = yes
+        }
+        guiButtonType = {
+            name = "open_instances"
+            position = { x = 55 y = 608 }
+            quadTextureSprite = "GFX_button_straight_96_32"
+            buttonFont = "vic_18"
+            buttonText = "PS_SWITCH_INSTANCE"
+            tooltipText = "PS_SELECTOR_ROW_TOOLTIP"
+            clicksound = click
+        }
+        instantTextBoxType = {
+            name = "primary_resource_value"
+            position = { x = 281 y = 128 }
+            font = "vic_29"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 94 maxHeight = 31
+        }
+        instantTextBoxType = {
+            name = "primary_resource_growth"
+            position = { x = 385 y = 128 }
+            font = "vic_22"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 94 maxHeight = 31
+        }
+        instantTextBoxType = {
+            name = "register_name_00"
+            position = { x = 278 y = 160 }
+            font = "vic_18"
+            format = left
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 105 maxHeight = 25 alwaystransparent = yes
+        }
+        instantTextBoxType = {
+            name = "register_value_00"
+            position = { x = 385 y = 160 }
+            font = "vic_18"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 88 maxHeight = 25
+        }
+        instantTextBoxType = {
+            name = "register_name_01"
+            position = { x = 278 y = 186 }
+            font = "vic_18"
+            format = left
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 105 maxHeight = 25 alwaystransparent = yes
+        }
+        instantTextBoxType = {
+            name = "register_value_01"
+            position = { x = 385 y = 186 }
+            font = "vic_18"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 88 maxHeight = 25
+        }
+        scrollbarType = {
+            name = "register_scroll"
+            slider = "register_thumb" track = "register_track" leftbutton = "register_down" rightbutton = "register_up"
+            position = { x = 477 y = 158 }
+            size = { x = 16 y = 53 }
+            priority = 100 borderSize = { x = 12 y = 12 } maxValue = 1 minValue = 0 stepSize = 1 startValue = 0 horizontal = 0
+            guiButtonType = { name = "register_thumb" quadTextureSprite = "GFX_scroll_drager" position = { x = 0 y = 0 } }
+            guiButtonType = { name = "register_track" quadTextureSprite = "GFX_scroll_track" position = { x = 12 y = 12 } }
+            guiButtonType = { name = "register_up" parent = "register_thumb" quadTextureSprite = "GFX_scroll_up" position = { x = 0 y = 0 } }
+            guiButtonType = { name = "register_down" parent = "register_thumb" quadTextureSprite = "GFX_scroll_down" position = { x = 0 y = 41 } }
+        }
+        guiButtonType = {
+            name = "member_flag_00"
+            position = { x = 282 y = 245 }
+            size = { x = 32 y = 32 }
+            quadTextureSprite = "GFX_shield_small"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "member_flag_01"
+            position = { x = 332 y = 245 }
+            size = { x = 32 y = 32 }
+            quadTextureSprite = "GFX_shield_small"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "member_flag_02"
+            position = { x = 382 y = 245 }
+            size = { x = 32 y = 32 }
+            quadTextureSprite = "GFX_shield_small"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "member_flag_03"
+            position = { x = 432 y = 245 }
+            size = { x = 32 y = 32 }
+            quadTextureSprite = "GFX_shield_small"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "member_flag_04"
+            position = { x = 282 y = 283 }
+            size = { x = 32 y = 32 }
+            quadTextureSprite = "GFX_shield_small"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "member_flag_05"
+            position = { x = 332 y = 283 }
+            size = { x = 32 y = 32 }
+            quadTextureSprite = "GFX_shield_small"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "member_flag_06"
+            position = { x = 382 y = 283 }
+            size = { x = 32 y = 32 }
+            quadTextureSprite = "GFX_shield_small"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "member_flag_07"
+            position = { x = 432 y = 283 }
+            size = { x = 32 y = 32 }
+            quadTextureSprite = "GFX_shield_small"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        scrollbarType = {
+            name = "membership_scroll"
+            slider = "membership_thumb" track = "membership_track" leftbutton = "membership_down" rightbutton = "membership_up"
+            position = { x = 477 y = 242 }
+            size = { x = 16 y = 76 }
+            priority = 100 borderSize = { x = 12 y = 12 } maxValue = 1 minValue = 0 stepSize = 1 startValue = 0 horizontal = 0
+            guiButtonType = { name = "membership_thumb" quadTextureSprite = "GFX_scroll_drager" position = { x = 0 y = 0 } }
+            guiButtonType = { name = "membership_track" quadTextureSprite = "GFX_scroll_track" position = { x = 12 y = 12 } }
+            guiButtonType = { name = "membership_up" parent = "membership_thumb" quadTextureSprite = "GFX_scroll_up" position = { x = 0 y = 0 } }
+            guiButtonType = { name = "membership_down" parent = "membership_thumb" quadTextureSprite = "GFX_scroll_down" position = { x = 0 y = 64 } }
+        }
+        guiButtonType = {
+            name = "office_group_hit_00"
+            position = { x = 271 y = 345 }
+            size = { x = 202 y = 14 }
+            quadTextureSprite = "GFX_pf075_transparent_hit"
+            buttonFont = "vic_18"
+            tooltip = ""
+            tooltipText = ""
+            no_clicksound = yes
+        }
+        instantTextBoxType = {
+            name = "office_group_title_00"
+            position = { x = 271 y = 345 }
+            font = "garamond_14_bold"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 202 maxHeight = 14 alwaystransparent = yes
+        }
+        guiButtonType = {
+            name = "office_flag_00"
+            position = { x = 289 y = 359 }
+            size = { x = 64 y = 64 }
+            quadTextureSprite = "GFX_shield_medium"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "office_flag_01"
+            position = { x = 390 y = 359 }
+            size = { x = 64 y = 64 }
+            quadTextureSprite = "GFX_shield_medium"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "office_group_hit_01"
+            position = { x = 271 y = 424 }
+            size = { x = 202 y = 14 }
+            quadTextureSprite = "GFX_pf075_transparent_hit"
+            buttonFont = "vic_18"
+            tooltip = ""
+            tooltipText = ""
+            no_clicksound = yes
+        }
+        instantTextBoxType = {
+            name = "office_group_title_01"
+            position = { x = 271 y = 424 }
+            font = "garamond_14_bold"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 202 maxHeight = 14 alwaystransparent = yes
+        }
+        guiButtonType = {
+            name = "office_flag_02"
+            position = { x = 289 y = 438 }
+            size = { x = 64 y = 64 }
+            quadTextureSprite = "GFX_shield_medium"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "office_flag_03"
+            position = { x = 390 y = 438 }
+            size = { x = 64 y = 64 }
+            quadTextureSprite = "GFX_shield_medium"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "office_group_hit_02"
+            position = { x = 271 y = 504 }
+            size = { x = 202 y = 14 }
+            quadTextureSprite = "GFX_pf075_transparent_hit"
+            buttonFont = "vic_18"
+            tooltip = ""
+            tooltipText = ""
+            no_clicksound = yes
+        }
+        instantTextBoxType = {
+            name = "office_group_title_02"
+            position = { x = 271 y = 504 }
+            font = "garamond_14_bold"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 202 maxHeight = 14 alwaystransparent = yes
+        }
+        guiButtonType = {
+            name = "office_flag_04"
+            position = { x = 289 y = 518 }
+            size = { x = 64 y = 64 }
+            quadTextureSprite = "GFX_shield_medium"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "office_flag_05"
+            position = { x = 390 y = 518 }
+            size = { x = 64 y = 64 }
+            quadTextureSprite = "GFX_shield_medium"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "office_group_hit_03"
+            position = { x = 271 y = 584 }
+            size = { x = 202 y = 14 }
+            quadTextureSprite = "GFX_pf075_transparent_hit"
+            buttonFont = "vic_18"
+            tooltip = ""
+            tooltipText = ""
+            no_clicksound = yes
+        }
+        instantTextBoxType = {
+            name = "office_group_title_03"
+            position = { x = 271 y = 584 }
+            font = "garamond_14_bold"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 202 maxHeight = 14 alwaystransparent = yes
+        }
+        guiButtonType = {
+            name = "office_flag_06"
+            position = { x = 289 y = 598 }
+            size = { x = 64 y = 64 }
+            quadTextureSprite = "GFX_shield_medium"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "office_flag_07"
+            position = { x = 390 y = 598 }
+            size = { x = 64 y = 64 }
+            quadTextureSprite = "GFX_shield_medium"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        scrollbarType = {
+            name = "offices_scroll"
+            slider = "offices_thumb" track = "offices_track" leftbutton = "offices_down" rightbutton = "offices_up"
+            position = { x = 477 y = 345 }
+            size = { x = 16 y = 319 }
+            priority = 100 borderSize = { x = 12 y = 12 } maxValue = 1 minValue = 0 stepSize = 1 startValue = 0 horizontal = 0
+            guiButtonType = { name = "offices_thumb" quadTextureSprite = "GFX_scroll_drager" position = { x = 0 y = 0 } }
+            guiButtonType = { name = "offices_track" quadTextureSprite = "GFX_scroll_track" position = { x = 12 y = 12 } }
+            guiButtonType = { name = "offices_up" parent = "offices_thumb" quadTextureSprite = "GFX_scroll_up" position = { x = 0 y = 0 } }
+            guiButtonType = { name = "offices_down" parent = "offices_thumb" quadTextureSprite = "GFX_scroll_down" position = { x = 0 y = 307 } }
+        }
+        guiButtonType = {
+            name = "action_button_00"
+            position = { x = 54 y = 349 }
+            quadTextureSprite = "GFX_button_straight_152_32"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "action_readonly_00"
+            position = { x = 54 y = 349 }
+            quadTextureSprite = "GFX_button_straight_152_32"
+            buttonFont = "vic_18"
+            no_clicksound = yes
+        }
+        guiButtonType = {
+            name = "action_seal_00"
+            position = { x = 198 y = 341 }
+            quadTextureSprite = "GFX_decree_button_seal"
+            buttonFont = "vic_18"
+            no_clicksound = yes
+            alwaystransparent = yes
+        }
+        guiButtonType = {
+            name = "action_mark_00"
+            position = { x = 210 y = 353 }
+            quadTextureSprite = "GFX_decree_button_check"
+            buttonFont = "vic_18"
+            no_clicksound = yes
+            alwaystransparent = yes
+        }
+        instantTextBoxType = {
+            name = "action_name_00"
+            position = { x = 57 y = 352 }
+            font = "vic_18"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 146 maxHeight = 25 alwaystransparent = yes
+        }
+        guiButtonType = {
+            name = "action_button_01"
+            position = { x = 54 y = 398 }
+            quadTextureSprite = "GFX_button_straight_152_32"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "action_readonly_01"
+            position = { x = 54 y = 398 }
+            quadTextureSprite = "GFX_button_straight_152_32"
+            buttonFont = "vic_18"
+            no_clicksound = yes
+        }
+        guiButtonType = {
+            name = "action_seal_01"
+            position = { x = 198 y = 390 }
+            quadTextureSprite = "GFX_decree_button_seal"
+            buttonFont = "vic_18"
+            no_clicksound = yes
+            alwaystransparent = yes
+        }
+        guiButtonType = {
+            name = "action_mark_01"
+            position = { x = 210 y = 402 }
+            quadTextureSprite = "GFX_decree_button_check"
+            buttonFont = "vic_18"
+            no_clicksound = yes
+            alwaystransparent = yes
+        }
+        instantTextBoxType = {
+            name = "action_name_01"
+            position = { x = 57 y = 401 }
+            font = "vic_18"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 146 maxHeight = 25 alwaystransparent = yes
+        }
+        guiButtonType = {
+            name = "action_button_02"
+            position = { x = 54 y = 447 }
+            quadTextureSprite = "GFX_button_straight_152_32"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "action_readonly_02"
+            position = { x = 54 y = 447 }
+            quadTextureSprite = "GFX_button_straight_152_32"
+            buttonFont = "vic_18"
+            no_clicksound = yes
+        }
+        guiButtonType = {
+            name = "action_seal_02"
+            position = { x = 198 y = 439 }
+            quadTextureSprite = "GFX_decree_button_seal"
+            buttonFont = "vic_18"
+            no_clicksound = yes
+            alwaystransparent = yes
+        }
+        guiButtonType = {
+            name = "action_mark_02"
+            position = { x = 210 y = 451 }
+            quadTextureSprite = "GFX_decree_button_check"
+            buttonFont = "vic_18"
+            no_clicksound = yes
+            alwaystransparent = yes
+        }
+        instantTextBoxType = {
+            name = "action_name_02"
+            position = { x = 57 y = 450 }
+            font = "vic_18"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 146 maxHeight = 25 alwaystransparent = yes
+        }
+        guiButtonType = {
+            name = "action_button_03"
+            position = { x = 54 y = 496 }
+            quadTextureSprite = "GFX_button_straight_152_32"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "action_readonly_03"
+            position = { x = 54 y = 496 }
+            quadTextureSprite = "GFX_button_straight_152_32"
+            buttonFont = "vic_18"
+            no_clicksound = yes
+        }
+        guiButtonType = {
+            name = "action_seal_03"
+            position = { x = 198 y = 488 }
+            quadTextureSprite = "GFX_decree_button_seal"
+            buttonFont = "vic_18"
+            no_clicksound = yes
+            alwaystransparent = yes
+        }
+        guiButtonType = {
+            name = "action_mark_03"
+            position = { x = 210 y = 500 }
+            quadTextureSprite = "GFX_decree_button_check"
+            buttonFont = "vic_18"
+            no_clicksound = yes
+            alwaystransparent = yes
+        }
+        instantTextBoxType = {
+            name = "action_name_03"
+            position = { x = 57 y = 499 }
+            font = "vic_18"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 146 maxHeight = 25 alwaystransparent = yes
+        }
+        scrollbarType = {
+            name = "action_scroll"
+            slider = "action_thumb" track = "action_track" leftbutton = "action_down" rightbutton = "action_up"
+            position = { x = 235 y = 346 }
+            size = { x = 16 y = 183 }
+            priority = 100 borderSize = { x = 12 y = 12 } maxValue = 1 minValue = 0 stepSize = 1 startValue = 0 horizontal = 0
+            guiButtonType = { name = "action_thumb" quadTextureSprite = "GFX_scroll_drager" position = { x = 0 y = 0 } }
+            guiButtonType = { name = "action_track" quadTextureSprite = "GFX_scroll_track" position = { x = 12 y = 12 } }
+            guiButtonType = { name = "action_up" parent = "action_thumb" quadTextureSprite = "GFX_scroll_up" position = { x = 0 y = 0 } }
+            guiButtonType = { name = "action_down" parent = "action_thumb" quadTextureSprite = "GFX_scroll_down" position = { x = 0 y = 171 } }
+        }
+    }
+
+    windowType = {
+        name = "pf075_federation_panel"
+        position = { x = -282 y = -252 }
+        size = { x = 564 y = 504 }
+        Orientation = "CENTER"
+        moveable = 0
+        fullScreen = no
+        iconType = {
+            name = "panel_background"
+            position = { x = 0 y = 0 }
+            spriteType = "GFX_natives_view_bg"
+        }
+        guiButtonType = {
+            name = "panel_hover"
+            position = { x = 0 y = 0 }
+            quadTextureSprite = "GFX_pf075_transparent_hit"
+            buttonFont = "vic_18"
+            size = { x = 564 y = 504 }
+            no_clicksound = yes
+        }
+        instantTextBoxType = {
+            name = "panel_title"
+            position = { x = 65 y = 41 }
+            font = "vic_22"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 420 maxHeight = 29 alwaystransparent = yes
+        }
+        guiButtonType = {
+            name = "close_panel"
+            position = { x = 515 y = 31 }
+            quadTextureSprite = "GFX_closebutton2"
+            buttonFont = "vic_18"
+            tooltipText = "PS_CLOSE_TOOLTIP"
+            clicksound = close_window
+        }
+        instantTextBoxType = {
+            name = "leader_title"
+            position = { x = 48 y = 102 }
+            font = "vic_22"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 180 maxHeight = 25 alwaystransparent = yes
+        }
+        guiButtonType = {
+            name = "leader_flag"
+            position = { x = 105 y = 149 }
+            size = { x = 92 y = 92 }
+            quadTextureSprite = "GFX_shield_thin"
+            buttonFont = "vic_18"
+            no_clicksound = yes
+        }
+        guiButtonType = {
+            name = "leader_history_hover"
+            position = { x = 43 y = 239 }
+            size = { x = 207 y = 24 }
+            quadTextureSprite = "GFX_pf075_transparent_hit"
+            buttonFont = "vic_18"
+            tooltip = ""
+            tooltipText = ""
+            no_clicksound = yes
+        }
+        instantTextBoxType = {
+            name = "leader_name"
+            position = { x = 43 y = 239 }
+            font = "vic_22"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 207 maxHeight = 24 alwaystransparent = yes
+        }
+        instantTextBoxType = {
+            name = "member_heading"
+            position = { x = 332 y = 71 }
+            font = "vic_22"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 156 maxHeight = 27 alwaystransparent = yes
+        }
+        instantTextBoxType = {
+            name = "office_heading"
+            position = { x = 321 y = 162 }
+            font = "vic_18"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 206 maxHeight = 18 alwaystransparent = yes
+        }
+        instantTextBoxType = {
+            name = "action_heading"
+            position = { x = 49 y = 337 }
+            font = "vic_22"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = "pf075_actions"
+            maxWidth = 177 maxHeight = 26 alwaystransparent = yes
+        }
+        guiButtonType = {
+            name = "open_instances"
+            position = { x = 232 y = 72 }
+            quadTextureSprite = "GFX_button_straight_96_32"
+            buttonFont = "vic_18"
+            buttonText = "PS_SWITCH_INSTANCE"
+            tooltipText = "PS_SELECTOR_ROW_TOOLTIP"
+            clicksound = click
+        }
+        instantTextBoxType = {
+            name = "primary_resource_value"
+            position = { x = 48 y = 263 }
+            font = "vic_29"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 82 maxHeight = 31
+        }
+        instantTextBoxType = {
+            name = "primary_resource_growth"
+            position = { x = 143 y = 263 }
+            font = "vic_22"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 82 maxHeight = 31
+        }
+        instantTextBoxType = {
+            name = "register_name_00"
+            position = { x = 45 y = 292 }
+            font = "vic_18"
+            format = left
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 97 maxHeight = 21 alwaystransparent = yes
+        }
+        instantTextBoxType = {
+            name = "register_value_00"
+            position = { x = 145 y = 292 }
+            font = "vic_18"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 90 maxHeight = 21
+        }
+        instantTextBoxType = {
+            name = "register_name_01"
+            position = { x = 45 y = 314 }
+            font = "vic_18"
+            format = left
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 97 maxHeight = 21 alwaystransparent = yes
+        }
+        instantTextBoxType = {
+            name = "register_value_01"
+            position = { x = 145 y = 314 }
+            font = "vic_18"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 90 maxHeight = 21
+        }
+        scrollbarType = {
+            name = "register_scroll"
+            slider = "register_thumb" track = "register_track" leftbutton = "register_down" rightbutton = "register_up"
+            position = { x = 239 y = 290 }
+            size = { x = 16 y = 45 }
+            priority = 100 borderSize = { x = 12 y = 12 } maxValue = 1 minValue = 0 stepSize = 1 startValue = 0 horizontal = 0
+            guiButtonType = { name = "register_thumb" quadTextureSprite = "GFX_scroll_drager" position = { x = 0 y = 0 } }
+            guiButtonType = { name = "register_track" quadTextureSprite = "GFX_scroll_track" position = { x = 12 y = 12 } }
+            guiButtonType = { name = "register_up" parent = "register_thumb" quadTextureSprite = "GFX_scroll_up" position = { x = 0 y = 0 } }
+            guiButtonType = { name = "register_down" parent = "register_thumb" quadTextureSprite = "GFX_scroll_down" position = { x = 0 y = 33 } }
+        }
+        guiButtonType = {
+            name = "member_flag_00"
+            position = { x = 334 y = 97 }
+            size = { x = 32 y = 32 }
+            quadTextureSprite = "GFX_shield_small"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "member_flag_01"
+            position = { x = 372 y = 97 }
+            size = { x = 32 y = 32 }
+            quadTextureSprite = "GFX_shield_small"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "member_flag_02"
+            position = { x = 411 y = 97 }
+            size = { x = 32 y = 32 }
+            quadTextureSprite = "GFX_shield_small"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "member_flag_03"
+            position = { x = 449 y = 97 }
+            size = { x = 32 y = 32 }
+            quadTextureSprite = "GFX_shield_small"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "member_flag_04"
+            position = { x = 334 y = 129 }
+            size = { x = 32 y = 32 }
+            quadTextureSprite = "GFX_shield_small"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "member_flag_05"
+            position = { x = 372 y = 129 }
+            size = { x = 32 y = 32 }
+            quadTextureSprite = "GFX_shield_small"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "member_flag_06"
+            position = { x = 411 y = 129 }
+            size = { x = 32 y = 32 }
+            quadTextureSprite = "GFX_shield_small"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "member_flag_07"
+            position = { x = 449 y = 129 }
+            size = { x = 32 y = 32 }
+            quadTextureSprite = "GFX_shield_small"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        scrollbarType = {
+            name = "membership_scroll"
+            slider = "membership_thumb" track = "membership_track" leftbutton = "membership_down" rightbutton = "membership_up"
+            position = { x = 489 y = 97 }
+            size = { x = 16 y = 65 }
+            priority = 100 borderSize = { x = 12 y = 12 } maxValue = 1 minValue = 0 stepSize = 1 startValue = 0 horizontal = 0
+            guiButtonType = { name = "membership_thumb" quadTextureSprite = "GFX_scroll_drager" position = { x = 0 y = 0 } }
+            guiButtonType = { name = "membership_track" quadTextureSprite = "GFX_scroll_track" position = { x = 12 y = 12 } }
+            guiButtonType = { name = "membership_up" parent = "membership_thumb" quadTextureSprite = "GFX_scroll_up" position = { x = 0 y = 0 } }
+            guiButtonType = { name = "membership_down" parent = "membership_thumb" quadTextureSprite = "GFX_scroll_down" position = { x = 0 y = 53 } }
+        }
+        guiButtonType = {
+            name = "office_group_hit_00"
+            position = { x = 331 y = 184 }
+            size = { x = 179 y = 14 }
+            quadTextureSprite = "GFX_pf075_transparent_hit"
+            buttonFont = "vic_18"
+            tooltip = ""
+            tooltipText = ""
+            no_clicksound = yes
+        }
+        instantTextBoxType = {
+            name = "office_group_title_00"
+            position = { x = 331 y = 184 }
+            font = "garamond_14_bold"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 179 maxHeight = 14 alwaystransparent = yes
+        }
+        guiButtonType = {
+            name = "office_flag_00"
+            position = { x = 343 y = 198 }
+            size = { x = 64 y = 64 }
+            quadTextureSprite = "GFX_shield_medium"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "office_flag_01"
+            position = { x = 433 y = 198 }
+            size = { x = 64 y = 64 }
+            quadTextureSprite = "GFX_shield_medium"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "office_group_hit_01"
+            position = { x = 331 y = 262 }
+            size = { x = 179 y = 14 }
+            quadTextureSprite = "GFX_pf075_transparent_hit"
+            buttonFont = "vic_18"
+            tooltip = ""
+            tooltipText = ""
+            no_clicksound = yes
+        }
+        instantTextBoxType = {
+            name = "office_group_title_01"
+            position = { x = 331 y = 262 }
+            font = "garamond_14_bold"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 179 maxHeight = 14 alwaystransparent = yes
+        }
+        guiButtonType = {
+            name = "office_flag_02"
+            position = { x = 343 y = 276 }
+            size = { x = 64 y = 64 }
+            quadTextureSprite = "GFX_shield_medium"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "office_flag_03"
+            position = { x = 433 y = 276 }
+            size = { x = 64 y = 64 }
+            quadTextureSprite = "GFX_shield_medium"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "office_group_hit_02"
+            position = { x = 331 y = 340 }
+            size = { x = 179 y = 14 }
+            quadTextureSprite = "GFX_pf075_transparent_hit"
+            buttonFont = "vic_18"
+            tooltip = ""
+            tooltipText = ""
+            no_clicksound = yes
+        }
+        instantTextBoxType = {
+            name = "office_group_title_02"
+            position = { x = 331 y = 340 }
+            font = "garamond_14_bold"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 179 maxHeight = 14 alwaystransparent = yes
+        }
+        guiButtonType = {
+            name = "office_flag_04"
+            position = { x = 343 y = 354 }
+            size = { x = 64 y = 64 }
+            quadTextureSprite = "GFX_shield_medium"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "office_flag_05"
+            position = { x = 433 y = 354 }
+            size = { x = 64 y = 64 }
+            quadTextureSprite = "GFX_shield_medium"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "office_group_hit_03"
+            position = { x = 331 y = 418 }
+            size = { x = 179 y = 14 }
+            quadTextureSprite = "GFX_pf075_transparent_hit"
+            buttonFont = "vic_18"
+            tooltip = ""
+            tooltipText = ""
+            no_clicksound = yes
+        }
+        instantTextBoxType = {
+            name = "office_group_title_03"
+            position = { x = 331 y = 418 }
+            font = "garamond_14_bold"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 179 maxHeight = 14 alwaystransparent = yes
+        }
+        guiButtonType = {
+            name = "office_flag_06"
+            position = { x = 343 y = 432 }
+            size = { x = 64 y = 64 }
+            quadTextureSprite = "GFX_shield_medium"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "office_flag_07"
+            position = { x = 433 y = 432 }
+            size = { x = 64 y = 64 }
+            quadTextureSprite = "GFX_shield_medium"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        scrollbarType = {
+            name = "offices_scroll"
+            slider = "offices_thumb" track = "offices_track" leftbutton = "offices_down" rightbutton = "offices_up"
+            position = { x = 514 y = 184 }
+            size = { x = 16 y = 312 }
+            priority = 100 borderSize = { x = 12 y = 12 } maxValue = 1 minValue = 0 stepSize = 1 startValue = 0 horizontal = 0
+            guiButtonType = { name = "offices_thumb" quadTextureSprite = "GFX_scroll_drager" position = { x = 0 y = 0 } }
+            guiButtonType = { name = "offices_track" quadTextureSprite = "GFX_scroll_track" position = { x = 12 y = 12 } }
+            guiButtonType = { name = "offices_up" parent = "offices_thumb" quadTextureSprite = "GFX_scroll_up" position = { x = 0 y = 0 } }
+            guiButtonType = { name = "offices_down" parent = "offices_thumb" quadTextureSprite = "GFX_scroll_down" position = { x = 0 y = 300 } }
+        }
+        guiButtonType = {
+            name = "action_button_00"
+            position = { x = 56 y = 361 }
+            quadTextureSprite = "GFX_button_straight_152_32"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "action_readonly_00"
+            position = { x = 56 y = 361 }
+            quadTextureSprite = "GFX_button_straight_152_32"
+            buttonFont = "vic_18"
+            no_clicksound = yes
+        }
+        guiButtonType = {
+            name = "action_seal_00"
+            position = { x = 179 y = 361 }
+            quadTextureSprite = "GFX_decree_button_seal"
+            buttonFont = "vic_18"
+            no_clicksound = yes
+            alwaystransparent = yes
+        }
+        guiButtonType = {
+            name = "action_mark_00"
+            position = { x = 179 y = 361 }
+            quadTextureSprite = "GFX_decree_button_check"
+            buttonFont = "vic_18"
+            no_clicksound = yes
+            alwaystransparent = yes
+        }
+        instantTextBoxType = {
+            name = "action_name_00"
+            position = { x = 61 y = 364 }
+            font = "vic_18"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 146 maxHeight = 25 alwaystransparent = yes
+        }
+        guiButtonType = {
+            name = "action_button_01"
+            position = { x = 56 y = 393 }
+            quadTextureSprite = "GFX_button_straight_152_32"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "action_readonly_01"
+            position = { x = 56 y = 393 }
+            quadTextureSprite = "GFX_button_straight_152_32"
+            buttonFont = "vic_18"
+            no_clicksound = yes
+        }
+        guiButtonType = {
+            name = "action_seal_01"
+            position = { x = 179 y = 393 }
+            quadTextureSprite = "GFX_decree_button_seal"
+            buttonFont = "vic_18"
+            no_clicksound = yes
+            alwaystransparent = yes
+        }
+        guiButtonType = {
+            name = "action_mark_01"
+            position = { x = 179 y = 393 }
+            quadTextureSprite = "GFX_decree_button_check"
+            buttonFont = "vic_18"
+            no_clicksound = yes
+            alwaystransparent = yes
+        }
+        instantTextBoxType = {
+            name = "action_name_01"
+            position = { x = 61 y = 396 }
+            font = "vic_18"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 146 maxHeight = 25 alwaystransparent = yes
+        }
+        guiButtonType = {
+            name = "action_button_02"
+            position = { x = 56 y = 425 }
+            quadTextureSprite = "GFX_button_straight_152_32"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "action_readonly_02"
+            position = { x = 56 y = 425 }
+            quadTextureSprite = "GFX_button_straight_152_32"
+            buttonFont = "vic_18"
+            no_clicksound = yes
+        }
+        guiButtonType = {
+            name = "action_seal_02"
+            position = { x = 179 y = 425 }
+            quadTextureSprite = "GFX_decree_button_seal"
+            buttonFont = "vic_18"
+            no_clicksound = yes
+            alwaystransparent = yes
+        }
+        guiButtonType = {
+            name = "action_mark_02"
+            position = { x = 179 y = 425 }
+            quadTextureSprite = "GFX_decree_button_check"
+            buttonFont = "vic_18"
+            no_clicksound = yes
+            alwaystransparent = yes
+        }
+        instantTextBoxType = {
+            name = "action_name_02"
+            position = { x = 61 y = 428 }
+            font = "vic_18"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 146 maxHeight = 25 alwaystransparent = yes
+        }
+        guiButtonType = {
+            name = "action_button_03"
+            position = { x = 56 y = 457 }
+            quadTextureSprite = "GFX_button_straight_152_32"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "action_readonly_03"
+            position = { x = 56 y = 457 }
+            quadTextureSprite = "GFX_button_straight_152_32"
+            buttonFont = "vic_18"
+            no_clicksound = yes
+        }
+        guiButtonType = {
+            name = "action_seal_03"
+            position = { x = 179 y = 457 }
+            quadTextureSprite = "GFX_decree_button_seal"
+            buttonFont = "vic_18"
+            no_clicksound = yes
+            alwaystransparent = yes
+        }
+        guiButtonType = {
+            name = "action_mark_03"
+            position = { x = 179 y = 457 }
+            quadTextureSprite = "GFX_decree_button_check"
+            buttonFont = "vic_18"
+            no_clicksound = yes
+            alwaystransparent = yes
+        }
+        instantTextBoxType = {
+            name = "action_name_03"
+            position = { x = 61 y = 460 }
+            font = "vic_18"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 146 maxHeight = 25 alwaystransparent = yes
+        }
+        scrollbarType = {
+            name = "action_scroll"
+            slider = "action_thumb" track = "action_track" leftbutton = "action_down" rightbutton = "action_up"
+            position = { x = 246 y = 359 }
+            size = { x = 16 y = 130 }
+            priority = 100 borderSize = { x = 12 y = 12 } maxValue = 1 minValue = 0 stepSize = 1 startValue = 0 horizontal = 0
+            guiButtonType = { name = "action_thumb" quadTextureSprite = "GFX_scroll_drager" position = { x = 0 y = 0 } }
+            guiButtonType = { name = "action_track" quadTextureSprite = "GFX_scroll_track" position = { x = 12 y = 12 } }
+            guiButtonType = { name = "action_up" parent = "action_thumb" quadTextureSprite = "GFX_scroll_up" position = { x = 0 y = 0 } }
+            guiButtonType = { name = "action_down" parent = "action_thumb" quadTextureSprite = "GFX_scroll_down" position = { x = 0 y = 118 } }
+        }
+    }
+
+    windowType = {
+        name = "pf075_style_slot_00"
+        position = { x = -365 y = -370 }
+        size = { x = 44 y = 42 }
+        Orientation = "LOWER_RIGHT"
+        moveable = 0
+        fullScreen = no
+        guiButtonType = {
+            name = "pf075_style_icon_0"
+            position = { x = 3 y = 3 }
+            quadTextureSprite = "GFX_pf075_hre_icon"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "pf075_style_icon_1"
+            position = { x = 3 y = 3 }
+            quadTextureSprite = "GFX_pf075_celestial_icon"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "pf075_style_icon_2"
+            position = { x = 3 y = 3 }
+            quadTextureSprite = "GFX_pf075_papacy_icon"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "pf075_style_icon_3"
+            position = { x = 3 y = 3 }
+            quadTextureSprite = "GFX_pf075_federation_icon"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "pf075_style_icon_4"
+            position = { x = 3 y = 3 }
+            quadTextureSprite = "GFX_pf075_expanded_icon"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+    }
+
+    windowType = {
+        name = "pf075_style_slot_01"
+        position = { x = -409 y = -370 }
+        size = { x = 44 y = 42 }
+        Orientation = "LOWER_RIGHT"
+        moveable = 0
+        fullScreen = no
+        guiButtonType = {
+            name = "pf075_style_icon_0"
+            position = { x = 3 y = 3 }
+            quadTextureSprite = "GFX_pf075_hre_icon"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "pf075_style_icon_1"
+            position = { x = 3 y = 3 }
+            quadTextureSprite = "GFX_pf075_celestial_icon"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "pf075_style_icon_2"
+            position = { x = 3 y = 3 }
+            quadTextureSprite = "GFX_pf075_papacy_icon"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "pf075_style_icon_3"
+            position = { x = 3 y = 3 }
+            quadTextureSprite = "GFX_pf075_federation_icon"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "pf075_style_icon_4"
+            position = { x = 3 y = 3 }
+            quadTextureSprite = "GFX_pf075_expanded_icon"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+    }
+
+    windowType = {
+        name = "pf075_style_slot_02"
+        position = { x = -453 y = -370 }
+        size = { x = 44 y = 42 }
+        Orientation = "LOWER_RIGHT"
+        moveable = 0
+        fullScreen = no
+        guiButtonType = {
+            name = "pf075_style_icon_0"
+            position = { x = 3 y = 3 }
+            quadTextureSprite = "GFX_pf075_hre_icon"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "pf075_style_icon_1"
+            position = { x = 3 y = 3 }
+            quadTextureSprite = "GFX_pf075_celestial_icon"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "pf075_style_icon_2"
+            position = { x = 3 y = 3 }
+            quadTextureSprite = "GFX_pf075_papacy_icon"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "pf075_style_icon_3"
+            position = { x = 3 y = 3 }
+            quadTextureSprite = "GFX_pf075_federation_icon"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "pf075_style_icon_4"
+            position = { x = 3 y = 3 }
+            quadTextureSprite = "GFX_pf075_expanded_icon"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+    }
+
+    windowType = {
+        name = "pf075_style_slot_03"
+        position = { x = -497 y = -370 }
+        size = { x = 44 y = 42 }
+        Orientation = "LOWER_RIGHT"
+        moveable = 0
+        fullScreen = no
+        guiButtonType = {
+            name = "pf075_style_icon_0"
+            position = { x = 3 y = 3 }
+            quadTextureSprite = "GFX_pf075_hre_icon"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "pf075_style_icon_1"
+            position = { x = 3 y = 3 }
+            quadTextureSprite = "GFX_pf075_celestial_icon"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "pf075_style_icon_2"
+            position = { x = 3 y = 3 }
+            quadTextureSprite = "GFX_pf075_papacy_icon"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "pf075_style_icon_3"
+            position = { x = 3 y = 3 }
+            quadTextureSprite = "GFX_pf075_federation_icon"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "pf075_style_icon_4"
+            position = { x = 3 y = 3 }
+            quadTextureSprite = "GFX_pf075_expanded_icon"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+    }
+
+    windowType = {
+        name = "pf075_style_slot_04"
+        position = { x = -541 y = -370 }
+        size = { x = 44 y = 42 }
+        Orientation = "LOWER_RIGHT"
+        moveable = 0
+        fullScreen = no
+        guiButtonType = {
+            name = "pf075_style_icon_0"
+            position = { x = 3 y = 3 }
+            quadTextureSprite = "GFX_pf075_hre_icon"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "pf075_style_icon_1"
+            position = { x = 3 y = 3 }
+            quadTextureSprite = "GFX_pf075_celestial_icon"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "pf075_style_icon_2"
+            position = { x = 3 y = 3 }
+            quadTextureSprite = "GFX_pf075_papacy_icon"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "pf075_style_icon_3"
+            position = { x = 3 y = 3 }
+            quadTextureSprite = "GFX_pf075_federation_icon"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "pf075_style_icon_4"
+            position = { x = 3 y = 3 }
+            quadTextureSprite = "GFX_pf075_expanded_icon"
+            buttonFont = "vic_18"
+            clicksound = click
+        }
+    }
+
+    # Geometry anchors read by the framework. The game does not open these windows.
+    windowType = {
+        name = "pf076_hre_members_frame"
+        position = { x = 431 y = 535 }
+        size = { x = 270 y = 118 }
+        moveable = 0
+        fullScreen = no
+    }
+
+    windowType = {
+        name = "pf076_hre_offices_frame"
+        position = { x = 68 y = 298 }
+        size = { x = 174 y = 351 }
+        moveable = 0
+        fullScreen = no
+    }
+
+    windowType = {
+        name = "pf076_hre_leader_frame"
+        position = { x = 102 y = 108 }
+        size = { x = 100 y = 100 }
+        moveable = 0
+        fullScreen = no
+    }
+
+    windowType = {
+        name = "pf076_celestial_members_frame"
+        position = { x = 359 y = 119 }
+        size = { x = 215 y = 163 }
+        moveable = 0
+        fullScreen = no
+    }
+
+    windowType = {
+        name = "pf076_celestial_offices_frame"
+        position = { x = 69 y = 454 }
+        size = { x = 270 y = 87 }
+        moveable = 0
+        fullScreen = no
+    }
+
+    windowType = {
+        name = "pf076_celestial_leader_frame"
+        position = { x = 158 y = 113 }
+        size = { x = 100 y = 100 }
+        moveable = 0
+        fullScreen = no
+    }
+
+    windowType = {
+        name = "pf076_papacy_members_frame"
+        position = { x = 270 y = 295 }
+        size = { x = 226 y = 91 }
+        moveable = 0
+        fullScreen = no
+    }
+
+    windowType = {
+        name = "pf076_papacy_offices_frame"
+        position = { x = 270 y = 423 }
+        size = { x = 226 y = 132 }
+        moveable = 0
+        fullScreen = no
+    }
+
+    windowType = {
+        name = "pf076_papacy_leader_frame"
+        position = { x = 103 y = 139 }
+        size = { x = 100 y = 100 }
+        moveable = 0
+        fullScreen = no
+    }
+
+    windowType = {
+        name = "pf076_federation_members_frame"
+        position = { x = 350 y = 148 }
+        size = { x = 156 y = 150 }
+        moveable = 0
+        fullScreen = no
+    }
+
+    windowType = {
+        name = "pf076_federation_offices_frame"
+        position = { x = 340 y = 382 }
+        size = { x = 191 y = 84 }
+        moveable = 0
+        fullScreen = no
+    }
+
+    windowType = {
+        name = "pf076_federation_leader_frame"
+        position = { x = 101 y = 145 }
+        size = { x = 100 y = 100 }
+        moveable = 0
+        fullScreen = no
+    }
+}

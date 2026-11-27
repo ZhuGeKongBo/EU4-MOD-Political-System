@@ -1,0 +1,5 @@
+
+western_harbor = {
+    type = harbor_moot
+    1444.1.1 = { leader = FRA members = { FRA SAV POR CAS } roles = { delegate = { SAV = yes POR = yes CAS = yes } } }
+}

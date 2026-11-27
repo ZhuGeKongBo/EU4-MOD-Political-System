@@ -1,0 +1,6 @@
+coastal_reserve_tip = {
+    parameters = { POLITY = system BALANCE = value LIMIT = maximum DETAIL = breakdown }
+}
+coastal_notice_balance = {
+    parameters = { RESERVE = { source = balance id = mandate } }
+}

@@ -1,0 +1,216 @@
+guiTypes = {
+    windowType = {
+        name = "ps_instance_selector"
+        position = { x = -146 y = -195 }
+        size = { x = 292 y = 403 }
+        Orientation = "CENTER"
+        moveable = 0
+        fullScreen = no
+        backGround = "ps_selector_surface"
+        guiButtonType = {
+            name = "ps_selector_surface"
+            position = { x = 0 y = 0 }
+            quadTextureSprite = "GFX_hre_vote_bg"
+            buttonFont = "vic_18"
+            tooltip = ""
+            tooltipText = ""
+            delayedTooltipText = ""
+            clicksound = click
+        }
+        instantTextBoxType = {
+            name = "ps_selector_title"
+            position = { x = 22 y = 28 }
+            font = "vic_22"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 239
+            maxHeight = 29
+            alwaystransparent = yes
+        }
+        guiButtonType = {
+            name = "ps_selector_close"
+            position = { x = 256 y = 29 }
+            quadTextureSprite = "GFX_closebutton2"
+            buttonFont = "vic_18"
+            tooltipText = "PS_CLOSE_TOOLTIP"
+            delayedTooltipText = ""
+            clicksound = click
+        }
+        guiButtonType = {
+            name = "ps_instance_row_00"
+            position = { x = 17 y = 74 }
+            quadTextureSprite = "GFX_button_straight_255_32"
+            buttonFont = "vic_18"
+            tooltip = ""
+            tooltipText = ""
+            delayedTooltipText = ""
+            clicksound = click
+        }
+        instantTextBoxType = {
+            name = "ps_instance_label_00"
+            position = { x = 24 y = 80 }
+            font = "vic_18"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 232
+            maxHeight = 29
+            alwaystransparent = yes
+        }
+        guiButtonType = {
+            name = "ps_instance_row_01"
+            position = { x = 17 y = 112 }
+            quadTextureSprite = "GFX_button_straight_255_32"
+            buttonFont = "vic_18"
+            tooltip = ""
+            tooltipText = ""
+            delayedTooltipText = ""
+            clicksound = click
+        }
+        instantTextBoxType = {
+            name = "ps_instance_label_01"
+            position = { x = 24 y = 118 }
+            font = "vic_18"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 232
+            maxHeight = 29
+            alwaystransparent = yes
+        }
+        guiButtonType = {
+            name = "ps_instance_row_02"
+            position = { x = 17 y = 150 }
+            quadTextureSprite = "GFX_button_straight_255_32"
+            buttonFont = "vic_18"
+            tooltip = ""
+            tooltipText = ""
+            delayedTooltipText = ""
+            clicksound = click
+        }
+        instantTextBoxType = {
+            name = "ps_instance_label_02"
+            position = { x = 24 y = 156 }
+            font = "vic_18"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 232
+            maxHeight = 29
+            alwaystransparent = yes
+        }
+        guiButtonType = {
+            name = "ps_instance_row_03"
+            position = { x = 17 y = 188 }
+            quadTextureSprite = "GFX_button_straight_255_32"
+            buttonFont = "vic_18"
+            tooltip = ""
+            tooltipText = ""
+            delayedTooltipText = ""
+            clicksound = click
+        }
+        instantTextBoxType = {
+            name = "ps_instance_label_03"
+            position = { x = 24 y = 194 }
+            font = "vic_18"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 232
+            maxHeight = 29
+            alwaystransparent = yes
+        }
+        guiButtonType = {
+            name = "ps_instance_row_04"
+            position = { x = 17 y = 226 }
+            quadTextureSprite = "GFX_button_straight_255_32"
+            buttonFont = "vic_18"
+            tooltip = ""
+            tooltipText = ""
+            delayedTooltipText = ""
+            clicksound = click
+        }
+        instantTextBoxType = {
+            name = "ps_instance_label_04"
+            position = { x = 24 y = 232 }
+            font = "vic_18"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 232
+            maxHeight = 29
+            alwaystransparent = yes
+        }
+        guiButtonType = {
+            name = "ps_instance_row_05"
+            position = { x = 17 y = 264 }
+            quadTextureSprite = "GFX_button_straight_255_32"
+            buttonFont = "vic_18"
+            tooltip = ""
+            tooltipText = ""
+            delayedTooltipText = ""
+            clicksound = click
+        }
+        instantTextBoxType = {
+            name = "ps_instance_label_05"
+            position = { x = 24 y = 270 }
+            font = "vic_18"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 232
+            maxHeight = 29
+            alwaystransparent = yes
+        }
+        guiButtonType = {
+            name = "ps_instance_row_06"
+            position = { x = 17 y = 302 }
+            quadTextureSprite = "GFX_button_straight_255_32"
+            buttonFont = "vic_18"
+            tooltip = ""
+            tooltipText = ""
+            delayedTooltipText = ""
+            clicksound = click
+        }
+        instantTextBoxType = {
+            name = "ps_instance_label_06"
+            position = { x = 24 y = 308 }
+            font = "vic_18"
+            format = centre
+            textureFile = ""
+            borderSize = { x = 0 y = 0 }
+            text = ""
+            maxWidth = 232
+            maxHeight = 29
+            alwaystransparent = yes
+        }
+        scrollbarType = {
+            name = "ps_instance_scroll"
+            slider = "ps_thumb"
+            track = "ps_track"
+            leftbutton = "ps_down"
+            rightbutton = "ps_up"
+            position = { x = 268 y = 70 }
+            size = { x = 12 y = 270 }
+            priority = 100
+            borderSize = { x = 12 y = 12 }
+            maxValue = 1
+            minValue = 0
+            stepSize = 1
+            startValue = 0
+            horizontal = 0
+            guiButtonType = { name = "ps_thumb" quadTextureSprite = "GFX_scroll_drager" position = { x = 0 y = 0 } }
+            guiButtonType = { name = "ps_track" quadTextureSprite = "GFX_scroll_track" position = { x = 12 y = 12 } }
+            guiButtonType = { name = "ps_up" parent = "ps_thumb" quadTextureSprite = "GFX_scroll_up" position = { x = 0 y = 0 } }
+            guiButtonType = { name = "ps_down" parent = "ps_thumb" quadTextureSprite = "GFX_scroll_down" position = { x = 0 y = 258 } }
+        }
+    }
+}

@@ -1,0 +1,701 @@
+builds = ["eu4-1.37.5-steam-win64"]
+
+[symbol.country_religion_site]
+memory = "code"
+bytes = "48 8B 0C C8 4C 8B B1 30 0F 00 00"
+values.offset = { at = 7, size = 4 }
+note = "Religion panel: after the indexed CCountry lookup, reads its current CReligion*."
+build."eu4-1.37.5-steam-win64" = { rva = 0xFE8266 }
+
+[symbol.religion_key_site]
+memory = "code"
+bytes = "48 8B 37 48 8D 8E 90 00 00 00 49 8B D4"
+values.offset = { at = 6, size = 4 }
+note = "Catholic religion registry lookup compares its key with the CReligion name string."
+build."eu4-1.37.5-steam-win64" = { rva = 0x10A7C10 }
+
+[symbol.country_capital_site]
+memory = "code"
+bytes = "41 8B 40 20 39 82 B8 14 00 00 75 1A"
+values.offset = { at = 6, size = 4 }
+note = "Base-tax calculation compares the province ID with this owner's capital ID."
+build."eu4-1.37.5-steam-win64" = { rva = 0x6DE7D0 }
+
+[symbol.province_discovery_array]
+memory = "code"
+bytes = "4C 69 C0 10 2E 00 00 48 8B 05 8A F0 74 01 48 C1 E9 38 4C 03 80 A8 1C 00 00"
+values.stride = { at = 3, size = 4 }
+values.root = { at = 10, rip_relative = 14 }
+values.array = { at = 21, size = 4 }
+note = "Province-scope discovered_by trigger at BF0D80 selects the runtime province array by province ID."
+build."eu4-1.37.5-steam-win64" = { rva = 0xBF0DE0 }
+
+[symbol.province_discovery_flags]
+memory = "code"
+bytes = "41 F6 80 59 09 00 00 10 74 2F 84 C9 74 2B 3C 07 74 27 49 8B 80 E0 05 00 00"
+values.flags = { at = 3, size = 4 }
+values.active = { at = 7, size = 1 }
+values.words = { at = 21, size = 4 }
+note = "discovered_by trigger checks the discovery flag and the country-index bitset. Trade node tooltip 13CCD85 follows the same checks."
+build."eu4-1.37.5-steam-win64" = { rva = 0xBF0E04 }
+
+[symbol.script_province_scope]
+memory = "code"
+bytes = "48 8B DA 48 8B F9 83 7A 28 00"
+values.province = { at = 8, size = 1 }
+note = "CProvinceCultureEffect::Execute reads the current province ID from CEventScope."
+build."eu4-1.37.5-steam-win64" = { rva = 0x62367F }
+
+[symbol.china_gui_init]
+memory = "code"
+bytes = "48 89 5C 24 08 48 89 74 24 10 48 89 7C 24 18 55 41 54"
+signature = "void (void* view)"
+build."eu4-1.37.5-steam-win64" = { rva = 0xE25F30 }
+
+[symbol.game_root]
+memory = "code"
+bytes = "48 8B 05 0E 87 51 01 80 B8 90 1B 00 00 00"
+values.slot = { at = 3, rip_relative = 7 }
+build."eu4-1.37.5-steam-win64" = { rva = 0xE27763 }
+
+[symbol.countries_db]
+memory = "code"
+bytes = "48 8B 15 3F 21 BE 01 49 8B 46 20 48 C1 E8 20 48 0F BF C8 48 8B 82 18 01 00 00 48 8B 14 C8 83 BA 44 13 00 00 00 75 0A 80 7A 26 07"
+values.slot = { at = 3, rip_relative = 7 }
+build."eu4-1.37.5-steam-win64" = { rva = 0x75B78A }
+
+[symbol.subject_types_db]
+memory = "code"
+bytes = "48 8B 0D F6 6D 56 01 E8 09 AC D4 FF 48 85 C0"
+values.slot = { at = 3, rip_relative = 7 }
+note = "Loaded subject-type registry used by the native subject-type parser."
+build."eu4-1.37.5-steam-win64" = { rva = 0xDD91DB }
+
+[symbol.lookup_subject_type]
+memory = "code"
+bytes = "40 53 48 83 EC 30 48 83 7A 18 10 48 8B D9 4C 8B CA"
+signature = "const void* (const void* registry, const void* key)"
+build."eu4-1.37.5-steam-win64" = { rva = 0xB23DF0 }
+
+[symbol.mod_file_source]
+export = "PHYSFS_getRealDir"
+signature = "const char* (const char* path)"
+
+[symbol.mod_file_open]
+export = "PHYSFS_openRead"
+signature = "void* (const char* path)"
+
+[symbol.mod_file_size]
+export = "PHYSFS_fileLength"
+signature = "int64_t (void* handle)"
+
+[symbol.mod_file_read]
+export = "PHYSFS_readBytes"
+signature = "int64_t (void* handle, void* buffer, uint64_t length)"
+
+[symbol.mod_file_close]
+export = "PHYSFS_close"
+signature = "int (void* handle)"
+
+[symbol.mod_enumerate]
+export = "PHYSFS_enumerateFiles"
+signature = "char** (const char* directory)"
+
+[symbol.mod_free_list]
+export = "PHYSFS_freeList"
+signature = "void (void* entries)"
+
+[symbol.stock_diplomacy_history_path]
+memory = "code"
+bytes = "E8 55 13 A6 FF 41 0F BA F7 0E"
+note = "Append a verified path to the stock diplomacy history read list."
+build."eu4-1.37.5-steam-win64" = { rva = 0x7EC126 }
+
+[symbol.country_add_prestige]
+memory = "code"
+bytes = "48 89 5C 24 18 48 89 6C 24 20 56 57 41 56 48 83 EC 40 41 8B E9 49 8B F8 4C 8B F2 48 8B F1"
+signature = "void (void* country, const int32_t* delta, const char* file, int line)"
+build."eu4-1.37.5-steam-win64" = { rva = 0x333650 }
+
+[symbol.country_get_prestige]
+memory = "code"
+bytes = "8B 81 F8 0C 00 00 89 02 48 8B C2 C3"
+signature = "int32_t* (const void* country, int32_t* prestige)"
+build."eu4-1.37.5-steam-win64" = { rva = 0x9A330 }
+
+[symbol.lookup_country_tag]
+memory = "code"
+bytes = "40 55 56 57 41 54 48 83 EC 28 48 8B FA 45 0F B6 E1"
+build."eu4-1.37.5-steam-win64" = { rva = 0x286120 }
+
+[symbol.find_button]
+memory = "code"
+bytes = "49 C7 C0 FF FF FF FF 66 0F 1F 84 00 00 00 00 00 49 FF C0"
+build."eu4-1.37.5-steam-win64" = { rva = 0x1548700 }
+
+[symbol.click_listener]
+memory = "code"
+bytes = "48 8D 0D E0 44 C0 00 48 89 8B 78 02 00 00 48 89 9B 80 02 00 00"
+values.table = { at = 3, rip_relative = 7 }
+build."eu4-1.37.5-steam-win64" = { rva = 0x10B3C69 }
+
+[symbol.find_scrollbar]
+memory = "code"
+bytes = "48 81 C1 18 09 00 00 48 8B 01 48 FF 60 08"
+build."eu4-1.37.5-steam-win64" = { rva = 0x15484A0 }
+
+[symbol.open_diplomacy]
+memory = "code"
+bytes = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 48 8B 81 10 11 00 00 48 8B DA"
+build."eu4-1.37.5-steam-win64" = { rva = 0x821420 }
+
+[symbol.describe_daimyo]
+memory = "code"
+bytes = "48 89 5C 24 18 55 56 57 41 54 41 55 41 56 41 57"
+signature = "bool (const void* provider, const void* shield, void* text)"
+build."eu4-1.37.5-steam-win64" = { rva = 0xE299B0 }
+
+[symbol.country_name]
+memory = "code"
+bytes = "40 55 53 56 57 41 56 48 8B EC 48 83 EC 40 4C 8B 1D 1B 46 0B 02"
+signature = "const void* (const void* tag, bool adjective, bool lower_case, bool debug)"
+build."eu4-1.37.5-steam-win64" = { rva = 0x2892A0 }
+
+[symbol.append_string]
+memory = "code"
+bytes = "48 89 5C 24 18 55 56 57 41 55 41 56 48 83 EC 20 48 8B 69 18"
+build."eu4-1.37.5-steam-win64" = { rva = 0x932F0 }
+
+[symbol.localize]
+memory = "code"
+bytes = "44 89 4C 24 20 4C 89 44 24 18 55 56 57 41 54 41 55 41 56 41 57"
+signature = "void* (void* text, const char* key, const void* params, unsigned count)"
+build."eu4-1.37.5-steam-win64" = { rva = 0x14B34A0 }
+
+[symbol.script_init_call]
+memory = "code"
+bytes = "E8 AB 0E 98 00 E8 A6 60 3D 00"
+build."eu4-1.37.5-steam-win64" = { rva = 0x208670 }
+
+[symbol.native_keyword_registry]
+memory = "code"
+bytes = "48 8D 0D 0E 7D C1 00 E8 69 5E FD FE"
+values.table = { at = 3, rip_relative = 7 }
+build."eu4-1.37.5-steam-win64" = { rva = 0x170EA0B }
+
+[symbol.native_keyword_lookup]
+memory = "code"
+bytes = "40 57 48 83 EC 20 48 83 79 08 00 48 8B FA"
+signature = "const int* (const void* table, const char* name)"
+build."eu4-1.37.5-steam-win64" = { rva = 0x6E4880 }
+
+[symbol.script_reader_error]
+memory = "code"
+bytes = "48 8B C4 48 89 58 08 48 89 68 10 48 89 70 18 48 89 78 20"
+signature = "void (void* reader, const void* diagnostic)"
+build."eu4-1.37.5-steam-win64" = { rva = 0x1709E60 }
+
+[symbol.valid_tag]
+memory = "code"
+bytes = "80 79 07 00 74 25 80 79 06 07 74 1F"
+build."eu4-1.37.5-steam-win64" = { rva = 0xCFFF0 }
+
+[symbol.create_window]
+memory = "code"
+bytes = "48 89 5C 24 10 57 48 83 EC 40 48 8B F9 48 8B DA 48 81 C1 C8 00 00 00 48 8B 01 FF 50 08"
+build."eu4-1.37.5-steam-win64" = { rva = 0x14E9030 }
+
+[symbol.set_text]
+memory = "code"
+bytes = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 48 83 EC 20 48 8D B9 70 01 00 00"
+build."eu4-1.37.5-steam-win64" = { rva = 0x152AE10 }
+
+[symbol.shield_position]
+memory = "code"
+bytes = "48 8B 81 98 01 00 00 48 89 02 48 8B C2 C3"
+signature = "void* (void* shield, void* position)"
+build."eu4-1.37.5-steam-win64" = { rva = 0xFAAC00 }
+
+[symbol.shield_move]
+memory = "code"
+bytes = "48 89 54 24 10 53 48 83 EC 20 80 B9 E3 01 00 00 00 48 8B D9 48 89 91 98 01 00 00"
+signature = "void (void* shield, uint64_t position)"
+build."eu4-1.37.5-steam-win64" = { rva = 0x1585C80 }
+
+[symbol.label_position]
+memory = "code"
+bytes = "48 8B 81 78 01 00 00 48 89 02 48 8B C2 C3"
+signature = "void* (void* label, void* position)"
+build."eu4-1.37.5-steam-win64" = { rva = 0x1571DC0 }
+
+[symbol.label_move]
+memory = "code"
+bytes = "48 83 EC 28 48 89 91 78 01 00 00 48 8B 89 68 01 00 00"
+signature = "void (void* label, uint64_t position)"
+build."eu4-1.37.5-steam-win64" = { rva = 0x1571CF0 }
+
+[symbol.assign_string]
+memory = "code"
+bytes = "48 89 5C 24 10 48 89 6C 24 18 56 57 41 57 48 83 EC 20 48 8B 69 18 49 8B F0 4C 8B FA"
+build."eu4-1.37.5-steam-win64" = { rva = 0x95110 }
+
+[symbol.free_string]
+memory = "code"
+bytes = "40 53 48 83 EC 20 48 8B 51 18 48 8B D9 48 83 FA 10"
+build."eu4-1.37.5-steam-win64" = { rva = 0x95660 }
+
+[symbol.effect_read_member]
+memory = "code"
+bytes = "48 89 5C 24 08 48 89 74 24 10 55 57 41 54 41 56 41 57"
+signature = "void (void* parent, void* reader, int token)"
+build."eu4-1.37.5-steam-win64" = { rva = 0x5DEC50 }
+
+[symbol.trigger_read_member]
+memory = "code"
+bytes = "44 89 4C 24 20 4C 89 44 24 18 48 89 54 24 10 48 89 4C 24 08"
+signature = "void* (void* parent, void** result, void* reader, int token)"
+build."eu4-1.37.5-steam-win64" = { rva = 0xB89F60 }
+
+[symbol.game_new]
+memory = "code"
+bytes = "40 53 48 83 EC 20 48 8B D9 EB 0F"
+build."eu4-1.37.5-steam-win64" = { rva = 0x1A332D4 }
+
+[symbol.effect_append]
+memory = "code"
+bytes = "4C 8B C2 48 8B 51 08 48 3B 51 10 74 0C 49 8B 00 48 89 02 48 83 41 08 08 C3"
+build."eu4-1.37.5-steam-win64" = { rva = 0xC9F10 }
+
+[symbol.set_china_ctor]
+memory = "code"
+bytes = "48 89 4C 24 08 53 48 83 EC 20 48 8B D9 E8 8E 7D FD FF"
+build."eu4-1.37.5-steam-win64" = { rva = 0x6069D0 }
+
+[symbol.is_china_factory]
+memory = "code"
+bytes = "48 89 5C 24 10 48 89 4C 24 08 57 48 83 EC 20 48 8B F9 B9 70 00 00 00"
+build."eu4-1.37.5-steam-win64" = { rva = 0xBB6C90 }
+
+[symbol.set_china_vtable]
+memory = "code"
+bytes = "48 8D 05 EE D4 69 01 66 89 4C 24 36 48 89 03"
+values.table = { at = 3, rip_relative = 7 }
+build."eu4-1.37.5-steam-win64" = { rva = 0x6069EB }
+
+[symbol.is_china_vtable]
+memory = "code"
+bytes = "48 8D 05 33 A3 13 01 48 89 03"
+values.table = { at = 3, rip_relative = 7 }
+build."eu4-1.37.5-steam-win64" = { rva = 0xBB6CDE }
+
+[symbol.is_china_reader_vtable]
+memory = "code"
+bytes = "48 8D 05 29 4E 0F 01 48 89 43 38 48 89 1F"
+values.table = { at = 3, rip_relative = 7 }
+build."eu4-1.37.5-steam-win64" = { rva = 0xBB6CE8 }
+
+[symbol.save_write_world]
+memory = "code"
+bytes = "48 89 5C 24 08 48 89 74 24 10 48 89 7C 24 18 55 41 56 41 57"
+signature = "bool (void* world, void* file, bool mode, bool rename, bool flags, bool last)"
+build."eu4-1.37.5-steam-win64" = { rva = 0x74BA20 }
+
+[symbol.save_load_world]
+memory = "code"
+bytes = "48 8B C4 53 56 57 48 83 EC 60 48 8B FA 48 8B F1 C7 40 18 00 00 00 00"
+signature = "bool (void* world, void* file)"
+build."eu4-1.37.5-steam-win64" = { rva = 0x74B8A0 }
+
+[symbol.save_write_members]
+memory = "code"
+bytes = "48 89 54 24 10 48 89 4C 24 08 55 53 56 57 41 54 41 55"
+signature = "void (void* world, void* writer)"
+build."eu4-1.37.5-steam-win64" = { rva = 0x74FF30 }
+
+[symbol.save_read_member]
+memory = "code"
+bytes = "48 89 5C 24 08 55 56 57 41 54 41 55 41 56 41 57"
+signature = "void (void* world, void* reader, int token)"
+build."eu4-1.37.5-steam-win64" = { rva = 0x751CD0 }
+
+[symbol.save_write_indent]
+memory = "code"
+bytes = "48 89 5C 24 08 48 89 74 24 10 57 48 81 EC 30 02 00 00"
+signature = "void (void* writer)"
+build."eu4-1.37.5-steam-win64" = { rva = 0x1708560 }
+
+[symbol.save_write_literal]
+memory = "code"
+bytes = "48 89 5C 24 10 57 48 83 EC 20 48 8B F9 48 8B DA 48 8B 49 10"
+signature = "void (void* writer, const char* text)"
+build."eu4-1.37.5-steam-win64" = { rva = 0x1708EE0 }
+
+[symbol.save_write_token]
+memory = "code"
+bytes = "40 55 53 56 57 41 54 41 56 41 57 48 8D 6C 24 D9"
+signature = "void (void* writer, const void* token)"
+build."eu4-1.37.5-steam-win64" = { rva = 0x1708870 }
+
+[symbol.save_write_string]
+memory = "code"
+bytes = "48 89 5C 24 18 55 56 57 41 54 41 55 41 56 41 57 48 83 EC 50"
+signature = "void (void* writer, const char* text, bool escape, bool unquoted)"
+build."eu4-1.37.5-steam-win64" = { rva = 0x1707D90 }
+
+[symbol.save_write_end_line]
+memory = "code"
+bytes = "40 53 48 83 EC 20 48 8B D9 B9 08 00 00 00"
+signature = "void (void* writer)"
+build."eu4-1.37.5-steam-win64" = { rva = 0x17084A0 }
+
+[symbol.toggle_hre_panel]
+memory = "code"
+bytes = "40 53 48 83 EC 20 48 8B D9 48 8B 89 80 12 00 00 80 79 30 00"
+signature = "void (void* in_game)"
+build."eu4-1.37.5-steam-win64" = { rva = 0x80C610 }
+
+[symbol.toggle_papacy_panel]
+memory = "code"
+bytes = "40 53 48 83 EC 20 48 8B 81 98 12 00 00 48 8B D9 80 78 08 00"
+signature = "void (void* in_game)"
+build."eu4-1.37.5-steam-win64" = { rva = 0x80C670 }
+
+[symbol.toggle_china_panel]
+memory = "code"
+bytes = "40 53 48 83 EC 20 48 8B D9 48 8B 89 C8 12 00 00 80 B9 40 04 00 00 00"
+signature = "void (void* in_game)"
+build."eu4-1.37.5-steam-win64" = { rva = 0x80D860 }
+
+[symbol.province_card_bind]
+memory = "code"
+bytes = "E8 AA 6A 02 00 90 48 8B 55 F8"
+note = "CProvinceView passes its native province_window child into its control binder."
+build."eu4-1.37.5-steam-win64" = { rva = 0x1345621 }
+
+
+[symbol.crown_message_manager]
+memory = "code"
+signature = "void* ()"
+bytes = "48 89 5C 24 10 57 48 83 EC 20 48 8B 05 87 CB B6 01"
+note = "The message manager used by the vanilla HRE accession."
+build."eu4-1.37.5-steam-win64" = { rva = 0x8BF160 }
+
+[symbol.crown_message_type]
+memory = "code"
+signature = "void* (void* manager, const void* type)"
+bytes = "48 89 5C 24 18 48 89 74 24 20 55 57 41 54 41 56"
+note = "Look up the named, configured game message."
+build."eu4-1.37.5-steam-win64" = { rva = 0x8C0460 }
+
+[symbol.crown_message_token]
+memory = "code"
+signature = "void (void* values, void* value)"
+bytes = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 48 8B 71 08"
+note = "Move one localisation substitution into the announcement."
+build."eu4-1.37.5-steam-win64" = { rva = 0x1AF0B0 }
+
+[symbol.crown_message_compose]
+memory = "code"
+signature = "void* (void* out, void* type, void* values, uint64_t player, void* a, void* b, uint64_t winner, void* d, void* label, void* e)"
+bytes = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 48 8B 5C 24 70"
+note = "Compose a native EU4 message with recipient and elected-country shields."
+build."eu4-1.37.5-steam-win64" = { rva = 0x8D4660 }
+
+[symbol.crown_message_post]
+memory = "code"
+signature = "void (void* manager, void* message, void* receiver, const void* go_to)"
+bytes = "48 89 54 24 10 53 48 81 EC 10 01 00 00 48 8B DA"
+note = "Submit the HRE-style message with its Go To action."
+build."eu4-1.37.5-steam-win64" = { rva = 0x1AF280 }
+
+[symbol.default_popup_fill_call]
+memory = "code"
+bytes = "E8 0E 21 00 00 90 48 8B 4D 38"
+note = "The CMessageDialog constructor calls this after copying CMessage and constructing the native DefaultPopup."
+build."eu4-1.37.5-steam-win64" = { rva = 0x8C225D }
+
+[symbol.message_dialog_surface]
+memory = "code"
+bytes = "48 8D 05 90 5C CB 00 48 89 46 30"
+values.table = { at = 3, rip_relative = 7 }
+build."eu4-1.37.5-steam-win64" = { rva = 0x10A1879 }
+
+[symbol.gui_append_scene_child]
+memory = "code"
+signature = "void (void* child, void* parent)"
+bytes = "48 89 5C 24 08 57 48 83 EC 20 48 8B 01 48 8B FA 48 8B D9 FF 90 E0 00 00 00"
+note = "CFixedWindow creates its native scene child through CGuiObject vslot 0xC8. Relinks an existing child at the end without changing visibility."
+build."eu4-1.37.5-steam-win64" = { rva = 0x1562420 }
+
+[symbol.retire_fixed_window]
+memory = "code"
+signature = "void (void* window)"
+bytes = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 48 83 EC 20 C6 81 F4 00 00 00 01"
+note = "CFixedWindow vslot 0x130 queues native removal (surface + 0xC4). Stock messages use this slot on disposal."
+build."eu4-1.37.5-steam-win64" = { rva = 0x1547520 }
+
+[symbol.defensive_join_vtable]
+memory = "code"
+bytes = "48 8D 0D 97 1E 5B 01 48 89 4D 80"
+values.table = { at = 3, rip_relative = 7 }
+note = "Installed by join_all_defensive_wars_of for its existing native diplomatic command."
+build."eu4-1.37.5-steam-win64" = { rva = 0x6CE212 }
+
+[symbol.defensive_join_check]
+memory = "code"
+signature = "bool (const void* command, void* reason, bool display)"
+bytes = "48 89 5C 24 10 44 88 44 24 18 55 56 57 41 54 41 55 41 56 41 57"
+build."eu4-1.37.5-steam-win64" = { rva = 0x541EF0 }
+
+[symbol.defensive_join_clone]
+memory = "code"
+signature = "void* (const void* command)"
+bytes = "48 89 5C 24 08 57 48 83 EC 20 48 8B D9 B9 70 00 00 00"
+build."eu4-1.37.5-steam-win64" = { rva = 0x542A00 }
+
+[symbol.diplomatic_command_vtable]
+memory = "code"
+bytes = "48 8D 05 FF 2F 5B 01 48 89 07 48 89 5F 50"
+values.table = { at = 3, rip_relative = 7 }
+build."eu4-1.37.5-steam-win64" = { rva = 0x6CE4AA }
+
+[symbol.diplomatic_command_submit]
+memory = "code"
+signature = "void (void* envelope)"
+bytes = "48 89 5C 24 18 48 89 6C 24 20 56 57 41 56 48 83 EC 20 48 8B F1 48 8B 49 50"
+build."eu4-1.37.5-steam-win64" = { rva = 0x4E7C50 }
+
+[symbol.diplomatic_command_dispose]
+memory = "code"
+signature = "void* (void* envelope, unsigned free_storage)"
+bytes = "48 89 5C 24 08 57 48 83 EC 20 8B FA 48 8B D9 48 8D 05 2A A0 79 01"
+build."eu4-1.37.5-steam-win64" = { rva = 0x4E7470 }
+
+[symbol.country_government_stack]
+memory = "code"
+bytes = "40 53 48 83 EC 20 48 8B 99 20 14 00 00 48 85 DB 74 06 48 8B 43 10"
+signature = "const void* (const void* country)"
+note = "C0E650 government trigger tooltip inlines this same CCountry method."
+build."eu4-1.37.5-steam-win64" = { rva = 0x40A6D0 }
+
+[symbol.government_category]
+memory = "code"
+bytes = "40 53 48 83 EC 20 48 8B D9 E8 92 9A FF FF 84 C0 74 0B B8 02 00 00 00"
+signature = "unsigned (const void* reform_stack)"
+note = "C0E6EF uses this followed by 7B2820 to map the result to a government category."
+build."eu4-1.37.5-steam-win64" = { rva = 0x7B2790 }
+
+[symbol.static_modifier_db_start]
+memory = "code"
+bytes = "E8 A7 3E 6E 00 48 8B D8 4C 8D 05 45 DB A3 01"
+note = "CApplication data loading reaches this after dynamic faction, estate and government modifier registrations, before vanilla static and event modifiers and ideas."
+build."eu4-1.37.5-steam-win64" = { rva = 0x209014 }
+
+[symbol.intern_modifier_key]
+memory = "code"
+bytes = "48 89 5C 24 18 88 54 24 10 55 56 57 41 56 41 57 48 8D 6C 24 A0"
+signature = "int32_t (const void* key, bool option)"
+note = "_influence call at 73DD46 interns the generated game string."
+build."eu4-1.37.5-steam-win64" = { rva = 0x170D410 }
+
+[symbol.construct_modifier]
+memory = "code"
+bytes = "48 8B C4 48 89 58 10 48 89 68 18 48 89 48 08 56 57 41 56 48 83 EC 60"
+signature = "void* (void* out, int32_t token, uint32_t id, const void* localisation, uint32_t flags, void** transformer)"
+note = "Builds the 0x60-byte game modifier definition from the keyword token and display flags."
+build."eu4-1.37.5-steam-win64" = { rva = 0x8E5EA0 }
+
+[symbol.register_modifier]
+memory = "code"
+bytes = "48 89 5C 24 10 48 89 74 24 18 48 89 4C 24 08 57 48 83 EC 30 48 8B F1"
+signature = "int32_t (void* definition)"
+note = "The faction registration at 73DEDA appends the definition, indexes its name and destroys the temporary object."
+build."eu4-1.37.5-steam-win64" = { rva = 0x8E5FF0 }
+
+[symbol.modifier_definition_range]
+memory = "code"
+bytes = "48 8B 3D EB 20 A7 01 48 8B 1D DC 20 A7 01 48 3B DF 74 31 0F 1F 80 00 00 00 00 48 8B CB E8 E8 D0 E3 FF 48 83 C3 60"
+values.end = { at = 3, rip_relative = 7 }
+values.begin = { at = 10, rip_relative = 14 }
+note = "Same native definition range read by anvil-game.world.modifier_id, for lookups while native databases are still loading."
+build."eu4-1.37.5-steam-win64" = { rva = 0x8E5F96 }
+
+[symbol.set_ui_tooltip]
+memory = "code"
+bytes = "48 89 51 58 C3"
+signature = "void (void* control, const void* tooltip)"
+note = "Stock HRE elector setup at 0x11688C8 looks up the relation textbox and calls its slot 0x220 at 0x116890B. Textbox vtables 0x1D954B0 and 0x1DA0850 share this setter."
+build."eu4-1.37.5-steam-win64" = { rva = 0xFBF490 }
+
+[symbol.nomination_tooltip_hit]
+memory = "code"
+bytes = "48 8B 9E A8 00 00 00 49 3B DE"
+note = "Convergence of native tooltip hit tests. R14 is the selected control, R12 points to the cursor, and RSI is the tooltip dispatcher. The provider is called at 0x1415552. Viewport size and pointer scale are read by stock at 0x141574E and 0x1415795."
+build."eu4-1.37.5-steam-win64" = { rva = 0x1415494 }
+
+[symbol.localisation_database_site]
+memory = "code"
+bytes = "48 8B 05 5B 46 EA 00 48 8B F1"
+values.slot = { at = 3, rip_relative = 7 }
+note = "Native localize loads the pointer to the active localisation database and dereferences it at 0x14B34D8."
+build."eu4-1.37.5-steam-win64" = { rva = 0x14B34BE }
+
+[symbol.localisation_raw_lookup]
+memory = "code"
+bytes = "4C 8B 41 20 4C 8B D2 48 8B 41 28 49 2B C0 48 C1 F8 04"
+signature = "const char* (const void* database, uint32_t name_hash)"
+note = "The call at 0x14B34FE obtains the untranslated-parameter template from the active game language table."
+build."eu4-1.37.5-steam-win64" = { rva = 0x16FB030 }
+
+[symbol.find_icon]
+memory = "code"
+bytes = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 48 89 7C 24 20 41 56 48 83 EC 60 48 8B FA 48 8B F1 48 C7 C3 FF FF FF FF"
+signature = "void* (void* window, const char* name)"
+note = "CFixedWindow slot 0xC8 at vtable 0x1D926B0, called by the stock HRE initializer to get hre_bg."
+build."eu4-1.37.5-steam-win64" = { rva = 0x15492E0 }
+
+[symbol.window_icon_lookup]
+memory = "code"
+bytes = "4C 8D 89 48 06 00 00 4C 8D 81 60 06 00 00 8B D0 48 8B CF E8 1F 63 00 00"
+values.controls = { at = 3, size = 4 }
+values.names = { at = 10, size = 4 }
+note = "Look up the icon by name in this fixed window before returning the graphics singleton's fallback icon."
+build."eu4-1.37.5-steam-win64" = { rva = 0x1549319 }
+
+[symbol.find_existing_window_icon]
+memory = "code"
+bytes = "40 55 48 83 EC 20 48 8D 6C 24 20 48 89 5D 10 48 63 DA 48 89 75 18"
+signature = "void* (const char* name, int32_t length, const void* names, const void* controls)"
+note = "Called at 0x154932C. Returns the matching control belonging to this window, or null on a miss."
+build."eu4-1.37.5-steam-win64" = { rva = 0x154F650 }
+
+[symbol.set_icon_sprite]
+memory = "code"
+bytes = "48 89 5C 24 10 48 89 6C 24 18 48 89 74 24 20 57 41 54 41 55 41 56 41 57 48 83 EC 50 48 8B FA 48 8B F1 48 8B 89 78 01 00 00 E8 A2 90 F5 FF 48 85 C0"
+signature = "void (void* icon, const void* game_string)"
+note = "iconType vtable 0x1D96D00 slot 0x2B0. Resolves the GFX name before replacing or freeing this icon's sprite."
+build."eu4-1.37.5-steam-win64" = { rva = 0x15864B0 }
+
+[symbol.icon_sprite_name]
+memory = "code"
+bytes = "40 53 48 83 EC 20 48 8B D9 48 8B 89 68 01 00 00 48 85 C9 74 28 48 8B 01 FF 90 78 02 00 00"
+signature = "const void* (const void* icon)"
+note = "iconType vtable 0x1D96D00 slot 0x2B8. Returns the sprite type's name or the empty game string."
+build."eu4-1.37.5-steam-win64" = { rva = 0x15862E0 }
+[symbol.native_construct_text_file_lexer]
+memory = "code"
+bytes = "48 89 5C 24 18 48 89 54 24 10 57 48 83 EC 40 48 8B DA 48 8B F9 0F 10 02 0F 11 44 24 20 0F 10 4A 10 0F 11 4C 24 30 48 C7 42 10 00 00 00 00 48 C7 42 18 0F 00 00 00 C6 02 00 48 8D 54 24 20 E8 5D EF FF FF 48 8D 05 9E 1B 6B 00 48 89 07"
+signature = "void* (void* obj, void* path)"
+note = "Concrete text lexer. The wrapper calls the abstract file lexer ctor then installs the stock text vtable, as the scripted effects loader does at ACBB08."
+build."eu4-1.37.5-steam-win64" = { rva = 0x170DD70 }
+
+[symbol.native_script_reader]
+memory = "code"
+bytes = "48 89 5C 24 10 48 89 6C 24 18 48 89 74 24 20"
+signature = "void* (void* obj, void* lexer, const void* path, bool owned)"
+note = "Stock text reader base constructor, called at E8D45A."
+build."eu4-1.37.5-steam-win64" = { rva = 0x1709570 }
+
+[symbol.native_drop_reader]
+memory = "code"
+bytes = "40 53 48 83 EC 20 80 B9 80 06 00 00 00 48 8D 05 6C 5E 6B 00"
+signature = "void (void* reader)"
+note = "Destroys reader including the owned lexer when requested."
+build."eu4-1.37.5-steam-win64" = { rva = 0x1709950 }
+
+[symbol.native_reader_assignment]
+memory = "code"
+bytes = "48 89 5C 24 10 57 48 81 EC 30 02 00 00 48 8B 59 28"
+signature = "void (void* reader)"
+note = "Stock decree file reads the next key and value at 479FA5."
+build."eu4-1.37.5-steam-win64" = { rva = 0x170ADA0 }
+
+[symbol.native_read_block]
+memory = "code"
+bytes = "48 89 4C 24 08 55 53 56 57 41 54 41 55 41 56 41 57"
+signature = "void (void* destination, void* reader)"
+note = "Read virtual used by the native decree trigger, effect and modifier subreaders."
+build."eu4-1.37.5-steam-win64" = { rva = 0x17068B0 }
+
+[symbol.native_decree_storage]
+memory = "code"
+bytes = "48 89 5C 24 18 48 89 54 24 10 48 89 4C 24 08 55 56 57 41 56 41 57"
+signature = "void* (void* object, void* name, unsigned index)"
+note = "Allocation 0x350 at 479FEA, ctor at 47A02B, destructor 478730."
+build."eu4-1.37.5-steam-win64" = { rva = 0x478560 }
+
+[symbol.native_event_scope]
+memory = "code"
+bytes = "48 89 51 2C 48 8D 05 BD 3B BA 01 48 89 01 33 D2"
+signature = "void* (void* scope, uint64_t tag, unsigned province, unsigned auxiliary)"
+note = "Constructs 0xd0-byte CEventScope; ACAF40 shows FROM link at scope+0x18."
+build."eu4-1.37.5-steam-win64" = { rva = 0x94590 }
+
+[symbol.native_drop_scope]
+memory = "code"
+bytes = "48 89 5C 24 08 57 48 83 EC 20 48 8B 99 C0 00 00 00 48 8B F9"
+signature = "void (void* scope)"
+note = "Native CEventScope destructor, passed scopes cleaned at AC9C7B and AC9C85."
+build."eu4-1.37.5-steam-win64" = { rva = 0x947F0 }
+
+[symbol.native_condition_test]
+memory = "code"
+bytes = "48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 48 8B 59 08"
+signature = "bool (const void* condition, const void* scope)"
+note = "Native AND group calls child trigger vtable slot 0x30."
+build."eu4-1.37.5-steam-win64" = { rva = 0xB98200 }
+
+[symbol.native_effect_run]
+memory = "code"
+bytes = "48 89 6C 24 10 48 89 74 24 18 48 89 7C 24 20 41 56 48 83 EC 20"
+signature = "void (const void* effect, void* scope, unsigned flags)"
+note = "Executes the native compound effect list at each child's slot 0x78."
+build."eu4-1.37.5-steam-win64" = { rva = 0x5ED800 }
+
+[symbol.native_mount_memory]
+export = "PHYSFS_mountMemory"
+
+[symbol.native_unmount_memory]
+export = "PHYSFS_unmount"
+
+[symbol.native_country_imperial_modifiers]
+memory = "code"
+bytes = "48 89 5C 24 20 55 56 57 41 54 41 55 41 56 41 57"
+signature = "void (const void* collection)"
+note = "Country modifier collector from the 93D568 table, with total owner at collection+0 and country at collection+8. Adds both HRE modifiers and the decree at 934467."
+build."eu4-1.37.5-steam-win64" = { rva = 0x934030 }
+
+[symbol.native_modifier_merge]
+memory = "code"
+bytes = "40 55 41 55 48 83 EC 48 4C 63 4A 64 45 33 C0"
+signature = "void (void* totals, const void* source)"
+note = "Native addition of a CModifier to the current total, used by 93409E, 934202 and 934467."
+build."eu4-1.37.5-steam-win64" = { rva = 0x8EA420 }
+
+[symbol.native_province_imperial_modifiers]
+memory = "code"
+bytes = "48 89 5C 24 10 48 89 74 24 18 57 48 83 EC 20 48 8B 41 20"
+signature = "void (const void* collection)"
+note = "Province collector in the 1CD0440 callback table. At 95D13F collection+20h supplies CProvince and at 95D273 collection+0 supplies the totals owner. 95D281 adds the reform province modifier."
+build."eu4-1.37.5-steam-win64" = { rva = 0x95D130 }
+
+[symbol.native_update_country_modifiers]
+memory = "code"
+bytes = "48 89 5C 24 10 55 56 57 41 54 41 55 41 56 41 57"
+signature = "void (void* country, const char* cause, bool quiet)"
+note = "Stock country recomputation called with an existing country and r8b=0 at 2A3CB9 and 2A73FC."
+build."eu4-1.37.5-steam-win64" = { rva = 0x327DC0 }
+
+[symbol.native_update_province_modifiers]
+memory = "code"
+bytes = "48 89 5C 24 10 57 B8 90 24 00 00 E8 E0 A2 03 01"
+signature = "void (void* province)"
+note = "Stock province recomputation called at 960B48. 9F95AC enters the province component collection."
+build."eu4-1.37.5-steam-win64" = { rva = 0x9F9500 }
+
+[symbol.native_script_weight]
+memory = "code"
+bytes = "48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 41 54 41 55 41 56 41 57 48 83 EC 20 8B 79 10 45 0F B6 F9"
+signature = "int32_t* (const void* weight, int32_t* result, const void* scope, bool multiplicative)"
+note = "Native factor evaluation. 8BE819 evaluates each conditional factor via the trigger native vtable. 8BE83C uses fixed-point multiplication in factor mode."
+build."eu4-1.37.5-steam-win64" = { rva = 0x8BE7B0 }

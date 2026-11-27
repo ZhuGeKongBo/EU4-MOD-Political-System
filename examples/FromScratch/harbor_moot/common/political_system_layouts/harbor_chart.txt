@@ -1,0 +1,16 @@
+
+harbor_chart = {
+    gui_file = "interface/harbor_chart.gui" window = western_chart
+    background_control = chart_art hover_control = chart_hover close_control = leave_chart vote_control = council_vote
+    regions = {
+        leader_region = { kind = slot control = captain }
+        members_region = { kind = list rows = 1 control = port caption = ports_caption scrollbar = port_rail }
+        special_members_region = {
+            kind = grid rows = 1 columns = 2 auto_place = no
+            control = chair caption = seats_caption scrollbar = seat_rail
+            group_heading = delegates_title group_tooltip_control = delegates_tip
+            nomination_score = rating nomination_tooltip_control = rating_read support_shield = pledge
+        }
+    }
+}
+hud_regions = { port_buttons = { gui_file = "interface/harbor_chart.gui" gfx_file = "interface/harbor_chart.gfx" container = port_slot button_template = chart_icon capacity = 1 page_window = port_pages } }

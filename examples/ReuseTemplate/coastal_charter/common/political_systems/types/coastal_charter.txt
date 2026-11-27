@@ -1,0 +1,72 @@
+coastal_charter = {
+    copy_from = celestial_style                # Start from the Workshop preset.
+    title = coastal_title                       # Name displayed in game.
+    members = {
+        source = explicit                      # Read members from the instance history.
+        subject_type = clear                   # Remove the preset's tributary filter.
+        title = coastal_members
+    }
+    resources = {
+        mandate = { tooltip = coastal_reserve_tip }
+    }
+    interface = {
+        title_key = coastal_title
+        entry_button = {
+            icon = GFX_pf075_expanded_icon       # An already registered cavalry icon.
+            order = 30
+            tooltip = coastal_open
+        }
+    }
+    messages = {
+        council_notice = {
+            title = coastal_notice_title
+            subtitle = coastal_notice_subtitle
+            body = { coastal_notice_body coastal_notice_balance }
+            log = coastal_notice_log
+            options = { close = coastal_notice_read secondary = coastal_notice_file }
+        }
+        council_record = {
+            title = coastal_record_title
+            body = coastal_record_body
+            popup = no                           # Keep a log entry without an automatic popup.
+        }
+    }
+    decisions = {
+        send_council_notice = {
+            name = coastal_notice_button
+            tooltip = coastal_notice_tip
+            actor_rule = leader
+            repeatable = yes
+            trigger = { ai = no }
+            effect = {
+                every_country = {
+                    limit = { OR = { tag = FRA tag = SAV } }
+                    political_send_message = {
+                        instance = INSTANCE
+                        message = council_notice
+                        actor = ROOT
+                    }
+                }
+                political_send_message = {
+                    instance = INSTANCE
+                    message = council_record
+                    target = ROOT
+                }
+            }
+            ui = { region = actions_region }
+        }
+        port_festival = {
+            name = coastal_festival
+            tooltip = coastal_festival_tip
+            actor_rule = leader
+            trigger = { is_at_war = no }
+            effect = {
+                add_treasury = 15
+                capital_scope = { set_province_flag = coastal_port_festival }
+            }
+            cooldown_days = 365
+            repeatable = yes
+            ui = { region = actions_region }
+        }
+    }
+}

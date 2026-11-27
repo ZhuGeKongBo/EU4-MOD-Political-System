@@ -1,0 +1,4 @@
+coastal_charter_1444 = {
+    type = coastal_charter
+    1444.1.1 = { leader = FRA members = { FRA SAV } }
+}

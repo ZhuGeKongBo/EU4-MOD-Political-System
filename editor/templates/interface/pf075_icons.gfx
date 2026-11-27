@@ -1,0 +1,8 @@
+spriteTypes = {
+    spriteType = { name = "GFX_pf075_transparent_hit" texturefile = "gfx/interface/resource_transparent.dds" transparencecheck = no }
+    spriteType = { name = "GFX_pf075_hre_icon" texturefile = "gfx/interface/icon_hre.dds" noOfFrames = 1 }
+    spriteType = { name = "GFX_pf075_celestial_icon" texturefile = "gfx/interface/mandate_of_heaven_icon_s.dds" noOfFrames = 1 }
+    spriteType = { name = "GFX_pf075_papacy_icon" texturefile = "gfx/interface/more_dip_actions_icon_papacy.dds" noOfFrames = 1 }
+    spriteType = { name = "GFX_pf075_federation_icon" texturefile = "gfx/interface/icon_federation.dds" noOfFrames = 1 }
+    spriteType = { name = "GFX_pf075_expanded_icon" texturefile = "gfx/interface/cavalry_icon.dds" noOfFrames = 1 }
+}

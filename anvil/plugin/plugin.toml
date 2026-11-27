@@ -1,0 +1,17 @@
+id = "great-khan-native"
+name = "Political Framework"
+version = "0.9.2"
+description = "Political instances and native entries from mounted content packs."
+api = 2
+anvil = ">=1.24.0"
+entry = "great_khan_native.dll"
+phase = "early"
+symbols = "symbols.toml"
+affects_gameplay = true
+
+[[dependencies]]
+id = "anvil-game"
+version = "^1.24.0"
+
+[[conflicts]]
+id = "great-khan-history"

@@ -1,0 +1,9 @@
+/build/
+*.pfproject.json
+*.dmp
+*.log
+*.eu4
+dlc_load.json
+anvil.toml
+version.dll
+eu4.exe

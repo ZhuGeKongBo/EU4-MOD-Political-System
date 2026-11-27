@@ -1,0 +1,5 @@
+
+spriteTypes = {
+    spriteType = { name = "GFX_harbor_entry" texturefile = "gfx/interface/icon_hre.dds" }
+    spriteType = { name = "GFX_harbor_hit" texturefile = "gfx/interface/resource_transparent.dds" transparencecheck = no }
+}

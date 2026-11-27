@@ -1,0 +1,321 @@
+guiTypes = {
+windowType = {
+        name = "gk_ballot_view"
+        backGround = "gk_vote_back"
+        position = { x = -556 y = -188 }
+        size = { x = 292 y = 403 }
+        moveable = 0
+        fullScreen = no
+        Orientation = "CENTER"
+		guiButtonType = {
+			name = "gk_vote_back"
+			position = { x = 0 y = 0 }
+			quadTextureSprite = "GFX_hre_vote_bg"
+		}
+		guiButtonType = {
+			name = "gk_vote_country"
+			position = { x = 37 y = 70 }
+			quadTextureSprite = "GFX_sort_107"
+			buttonText = "DOMESTIC_NATION"
+			buttonFont = "vic_18"
+			clicksound = click
+		}
+		guiButtonType = {
+			name = "gk_vote_opinion"
+			position = { x = 143 y = 70 }
+			quadTextureSprite = "GFX_sort_107"
+			buttonText = "DOMESTIC_RELATION"
+			buttonFont = "vic_18"
+			clicksound = click
+		}
+		guiButtonType = {
+			name = "gk_vote_close"
+			position = { x = 71 y = 355 }
+			quadTextureSprite = "button_type_1"
+			buttonText = "GOTO_CANCEL"
+			buttonFont = "vic_18"
+			clicksound = click
+		}
+		instantTextBoxType = {
+			name = "gk_vote_title"
+			position = { x = 0 y = 33 }
+			font = "vic_22s"
+			format = centre
+			textureFile = ""
+			borderSize = { x = 4 y = -4 }
+			text = "CAST_ELECTORAL_VOTE"
+			maxWidth = 300
+			maxHeight = 30
+			alwaystransparent = yes
+		}
+		guiButtonType = {
+			name = "gk_pick_0"
+			position = { x = 45 y = 94 }
+			quadTextureSprite = "GFX_shield_small"
+			buttonFont = "vic_18_black"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+		}
+		instantTextBoxType = {
+			name = "gk_name_0"
+			position = { x = 77 y = 101 }
+			font = "vic_18"
+			format = left
+			textureFile = ""
+			borderSize = { x = 0 y = 0 }
+			text = ""
+			maxWidth = 124
+			maxHeight = 30
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "gk_opinion_0"
+			position = { x = 185 y = 101 }
+			font = "vic_18"
+			format = right
+			textureFile = ""
+			borderSize = { x = 0 y = 0 }
+			text = ""
+			maxWidth = 37
+			maxHeight = 30
+			alwaystransparent = yes
+		}
+		guiButtonType = {
+			name = "gk_pick_1"
+			position = { x = 45 y = 130 }
+			quadTextureSprite = "GFX_shield_small"
+			buttonFont = "vic_18_black"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+		}
+		instantTextBoxType = {
+			name = "gk_name_1"
+			position = { x = 77 y = 137 }
+			font = "vic_18"
+			format = left
+			textureFile = ""
+			borderSize = { x = 0 y = 0 }
+			text = ""
+			maxWidth = 124
+			maxHeight = 30
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "gk_opinion_1"
+			position = { x = 185 y = 137 }
+			font = "vic_18"
+			format = right
+			textureFile = ""
+			borderSize = { x = 0 y = 0 }
+			text = ""
+			maxWidth = 37
+			maxHeight = 30
+			alwaystransparent = yes
+		}
+		guiButtonType = {
+			name = "gk_pick_2"
+			position = { x = 45 y = 166 }
+			quadTextureSprite = "GFX_shield_small"
+			buttonFont = "vic_18_black"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+		}
+		instantTextBoxType = {
+			name = "gk_name_2"
+			position = { x = 77 y = 173 }
+			font = "vic_18"
+			format = left
+			textureFile = ""
+			borderSize = { x = 0 y = 0 }
+			text = ""
+			maxWidth = 124
+			maxHeight = 30
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "gk_opinion_2"
+			position = { x = 185 y = 173 }
+			font = "vic_18"
+			format = right
+			textureFile = ""
+			borderSize = { x = 0 y = 0 }
+			text = ""
+			maxWidth = 37
+			maxHeight = 30
+			alwaystransparent = yes
+		}
+		guiButtonType = {
+			name = "gk_pick_3"
+			position = { x = 45 y = 202 }
+			quadTextureSprite = "GFX_shield_small"
+			buttonFont = "vic_18_black"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+		}
+		instantTextBoxType = {
+			name = "gk_name_3"
+			position = { x = 77 y = 209 }
+			font = "vic_18"
+			format = left
+			textureFile = ""
+			borderSize = { x = 0 y = 0 }
+			text = ""
+			maxWidth = 124
+			maxHeight = 30
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "gk_opinion_3"
+			position = { x = 185 y = 209 }
+			font = "vic_18"
+			format = right
+			textureFile = ""
+			borderSize = { x = 0 y = 0 }
+			text = ""
+			maxWidth = 37
+			maxHeight = 30
+			alwaystransparent = yes
+		}
+		guiButtonType = {
+			name = "gk_pick_4"
+			position = { x = 45 y = 238 }
+			quadTextureSprite = "GFX_shield_small"
+			buttonFont = "vic_18_black"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+		}
+		instantTextBoxType = {
+			name = "gk_name_4"
+			position = { x = 77 y = 245 }
+			font = "vic_18"
+			format = left
+			textureFile = ""
+			borderSize = { x = 0 y = 0 }
+			text = ""
+			maxWidth = 124
+			maxHeight = 30
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "gk_opinion_4"
+			position = { x = 185 y = 245 }
+			font = "vic_18"
+			format = right
+			textureFile = ""
+			borderSize = { x = 0 y = 0 }
+			text = ""
+			maxWidth = 37
+			maxHeight = 30
+			alwaystransparent = yes
+		}
+		guiButtonType = {
+			name = "gk_pick_5"
+			position = { x = 45 y = 274 }
+			quadTextureSprite = "GFX_shield_small"
+			buttonFont = "vic_18_black"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+		}
+		instantTextBoxType = {
+			name = "gk_name_5"
+			position = { x = 77 y = 281 }
+			font = "vic_18"
+			format = left
+			textureFile = ""
+			borderSize = { x = 0 y = 0 }
+			text = ""
+			maxWidth = 124
+			maxHeight = 30
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "gk_opinion_5"
+			position = { x = 185 y = 281 }
+			font = "vic_18"
+			format = right
+			textureFile = ""
+			borderSize = { x = 0 y = 0 }
+			text = ""
+			maxWidth = 37
+			maxHeight = 30
+			alwaystransparent = yes
+		}
+		guiButtonType = {
+			name = "gk_pick_6"
+			position = { x = 45 y = 310 }
+			quadTextureSprite = "GFX_shield_small"
+			buttonFont = "vic_18_black"
+			tooltip = ""
+			tooltipText = ""
+			delayedTooltipText = ""
+		}
+		instantTextBoxType = {
+			name = "gk_name_6"
+			position = { x = 77 y = 317 }
+			font = "vic_18"
+			format = left
+			textureFile = ""
+			borderSize = { x = 0 y = 0 }
+			text = ""
+			maxWidth = 124
+			maxHeight = 30
+			alwaystransparent = yes
+		}
+		instantTextBoxType = {
+			name = "gk_opinion_6"
+			position = { x = 185 y = 317 }
+			font = "vic_18"
+			format = right
+			textureFile = ""
+			borderSize = { x = 0 y = 0 }
+			text = ""
+			maxWidth = 37
+			maxHeight = 30
+			alwaystransparent = yes
+		}
+		scrollbarType = {
+			name = "gk_vote_scroll"
+			slider = "gk_scroll_thumb"
+			track = "gk_scroll_track"
+			leftbutton = "gk_scroll_down"
+			rightbutton = "gk_scroll_up"
+			size = { x = 12 y = 253 }
+			position = { x = 227 y = 94 }
+			priority = 100
+			borderSize = { x = 12 y = 12 }
+			maxValue = 1
+			minValue = 0
+			stepSize = 1
+			startValue = 0
+			horizontal = 0
+			guiButtonType = {
+				name = "gk_scroll_thumb"
+				quadTextureSprite = "GFX_scroll_drager"
+				position = { x = 0 y = 0 }
+			}
+			guiButtonType = {
+				name = "gk_scroll_track"
+				quadTextureSprite = "GFX_scroll_track"
+				position = { x = 12 y = 12 }
+			}
+			guiButtonType = {
+				name = "gk_scroll_up"
+				parent = "gk_scroll_thumb"
+				quadTextureSprite = "GFX_scroll_up"
+				position = { x = 0 y = 0 }
+			}
+			guiButtonType = {
+				name = "gk_scroll_down"
+				parent = "gk_scroll_thumb"
+				quadTextureSprite = "GFX_scroll_down"
+				position = { x = 0 y = 241 }
+			}
+		}
+	}
+}

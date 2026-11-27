@@ -1,0 +1,14 @@
+
+harbor_moot = {
+    title = harbor_title
+    leader = { title = Captain succession = {
+        mode = elected event = ruler_changed electors_role = delegate
+        tie_break = incumbent_then_stable_id cooldown_on_turnover = retain
+    } }
+    members = { source = explicit title = Ports }
+    special_members = { delegate = { acquisition = appointed title_key = harbor_seats tooltip = harbor_tip max_holders = 3 require_member = yes } }
+    interface = {
+        layout = harbor_chart
+        entry_button = { region = port_buttons icon = GFX_harbor_entry tooltip = harbor_tip }
+    }
+}

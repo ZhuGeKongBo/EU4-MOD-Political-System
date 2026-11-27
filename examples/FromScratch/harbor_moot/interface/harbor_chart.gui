@@ -1,0 +1,47 @@
+guiTypes = {
+    windowType = {
+        name = western_chart orientation = CENTER position = { x = -259 y = -219 } size = { x = 518 y = 438 }
+        iconType = { name = chart_art spriteType = GFX_hre_bg position = { x = 0 y = 0 } }
+        guiButtonType = { name = chart_hover position = { x = 0 y = 0 } size = { x = 518 y = 438 } quadTextureSprite = GFX_harbor_hit no_clicksound = yes }
+        guiButtonType = { name = leave_chart position = { x = 476 y = 30 } quadTextureSprite = GFX_closebutton }
+        guiButtonType = { name = council_vote position = { x = 326 y = 114 } quadTextureSprite = GFX_button_straight_152_32 buttonFont = "vic_18" buttonText = "Vote" }
+        guiButtonType = { name = captain position = { x = 26 y = 34 } size = { x = 56 y = 56 } quadTextureSprite = GFX_shield_medium }
+        instantTextBoxType = { name = ports_caption position = { x = 391 y = 180 } maxWidth = 70 maxHeight = 20 }
+        guiButtonType = { name = port_00 position = { x = 401 y = 221 } size = { x = 32 y = 32 } quadTextureSprite = GFX_shield_small }
+        scrollbarType = {
+            name = "port_rail"
+            slider = "membership_thumb" track = "membership_track" leftbutton = "membership_down" rightbutton = "membership_up"
+            position = { x = 447 y = 218 }
+            size = { x = 16 y = 70 }
+            priority = 100 borderSize = { x = 12 y = 12 } maxValue = 1 minValue = 0 stepSize = 1 startValue = 0 horizontal = 0
+            guiButtonType = { name = "membership_thumb" quadTextureSprite = "GFX_scroll_drager" position = { x = 0 y = 0 } }
+            guiButtonType = { name = "membership_track" quadTextureSprite = "GFX_scroll_track" position = { x = 12 y = 12 } }
+            guiButtonType = { name = "membership_up" parent = "membership_thumb" quadTextureSprite = "GFX_scroll_up" position = { x = 0 y = 0 } }
+            guiButtonType = { name = "membership_down" parent = "membership_thumb" quadTextureSprite = "GFX_scroll_down" position = { x = 0 y = 96 } }
+        }
+        instantTextBoxType = { name = seats_caption position = { x = 51 y = 115 } maxWidth = 90 maxHeight = 18 }
+        scrollbarType = {
+            name = "seat_rail"
+            slider = "offices_thumb" track = "offices_track" leftbutton = "offices_down" rightbutton = "offices_up"
+            position = { x = 339 y = 140 }
+            size = { x = 16 y = 160 }
+            priority = 100 borderSize = { x = 12 y = 12 } maxValue = 1 minValue = 0 stepSize = 1 startValue = 0 horizontal = 0
+            guiButtonType = { name = "offices_thumb" quadTextureSprite = "GFX_scroll_drager" position = { x = 0 y = 0 } }
+            guiButtonType = { name = "offices_track" quadTextureSprite = "GFX_scroll_track" position = { x = 12 y = 12 } }
+            guiButtonType = { name = "offices_up" parent = "offices_thumb" quadTextureSprite = "GFX_scroll_up" position = { x = 0 y = 0 } }
+            guiButtonType = { name = "offices_down" parent = "offices_thumb" quadTextureSprite = "GFX_scroll_down" position = { x = 0 y = 339 } }
+        }
+        guiButtonType = { name = delegates_tip_00 position = { x = 51 y = 140 } size = { x = 108 y = 14 } quadTextureSprite = GFX_harbor_hit no_clicksound = yes }
+        instantTextBoxType = { name = delegates_title_00 position = { x = 51 y = 140 } maxWidth = 108 maxHeight = 14 alwaystransparent = yes }
+        guiButtonType = { name = chair_00 position = { x = 268 y = 69 } size = { x = 56 y = 56 } quadTextureSprite = GFX_shield_medium }
+        guiButtonType = { name = chair_01 position = { x = 404 y = 307 } size = { x = 56 y = 56 } quadTextureSprite = GFX_shield_medium }
+        guiButtonType = { name = pledge_00 position = { x = 72 y = 202 } size = { x = 22 y = 22 } quadTextureSprite = GFX_shield_small }
+        guiButtonType = { name = pledge_01 position = { x = 408 y = 349 } size = { x = 22 y = 22 } quadTextureSprite = GFX_shield_small }
+        guiButtonType = { name = rating_read_00 position = { x = 99 y = 201 } size = { x = 36 y = 16 } quadTextureSprite = GFX_harbor_hit no_clicksound = yes }
+        guiButtonType = { name = rating_read_01 position = { x = 469 y = 346 } size = { x = 36 y = 16 } quadTextureSprite = GFX_harbor_hit no_clicksound = yes }
+        instantTextBoxType = { name = rating_00 position = { x = 99 y = 201 } maxWidth = 36 maxHeight = 16 alwaystransparent = yes format = left }
+        instantTextBoxType = { name = rating_01 position = { x = 469 y = 346 } maxWidth = 36 maxHeight = 16 alwaystransparent = yes format = left }
+    }
+    windowType = { name = port_slot_00 position = { x = -365 y = -428 } size = { x = 44 y = 42 } orientation = LOWER_RIGHT guiButtonType = { name = chart_icon quadTextureSprite = GFX_harbor_entry } }
+    windowType = { name = port_pages guiButtonType = { name = ps_page_next } }
+}

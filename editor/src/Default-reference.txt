@@ -1,0 +1,336 @@
+# 0.7.9 政治体系类型参考。留在 reference/political_systems，游戏不读取这份表。
+# 此处的值是写法示例。新体系从 common/political_systems/types 下的已有预设继承，再复制自己需要的段落。
+# 写进 types 目录的 default 会成为没有 copy_from 的类型的共同母版。一个环境只定义一个 default。
+# 省略字段一般沿用父级。yes/no、clear、null 的支持见各段。删除条目时也要清理引用其 ID 的行动和历史。
+# 条件和效果的支持范围以相应段落为准。示例中的本地化键、权限 ID 等可改成自己的。
+
+default = {                                         # 全局默认母版，保留 abstract = yes。
+    # copy_from = celestial_style                   # 写在自定义子类型的第一行。default 本身不能使用 copy_from。
+    abstract = yes                                  # 仅作母版。实际可用的子类型省略此行或写 abstract = no。
+    title = example_title                           # 类型名称的备用文本。可见标题建议同时绑定 interface.title_key。
+
+    # 建立和维持实例
+    existence = {                                   # 控制同一类型能开多少套、如何建立或终止。
+        allow_history = yes                         # 是否允许历史文件创建。
+        max_instances = 0                           # 此类型的实例上限。0 表示此类型没有额外上限。
+        allow_dynamic_creation = no                 # 是否允许游戏脚本动态建立。
+        allow_dissolution = no                      # 是否允许脚本解散。
+        create_trigger = { always = yes }           # 对建立者检查的条件，可用适当的扩展查询。
+        continue_trigger = { always = yes }         # 对当前领袖检查的原版国家条件。
+    }
+
+    # 名册和疆域
+    members = {                                     # 可写 yes 使用显式名册。no/clear 关闭本模块。
+        source = explicit                           # explicit、leader_subjects、capital_territory、query 或 mixed。
+        # subject_type = daimyo_vassal              # leader_subjects 的直属附庸类型。用原版 subject_types 的 ID。
+        # source_trigger = { religion = catholic }  # query/mixed 必填。空块表示所有国家。mixed 也允许显式名单增减。
+        title = Members                             # 成员区标题文本。
+        join_trigger = { always = yes }             # 加入资格，对将要加入的国家检查。
+        retain_trigger = { always = yes }           # 保留资格，对现有成员检查。
+        leave_trigger = { always = yes }            # 离开资格，对拟离开的国家检查。
+        max_per_country = 0                         # 同类体系中每国上限，0 为不限。非零值只用于 explicit。
+        # rejoin_cooldown_days = 0                   # 此版只接受 0。重入冷却尚未开放。
+    }
+    territory = {                                   # 启用疆域模块。yes 用基础设置，no/clear 可关闭。
+        source = explicit                           # explicit 用实例历史。province_history 从省份历史读取。
+        # history_key = hre                         # 仅用于 province_history，对应省份历史中的 yes/no 标记。
+    }
+
+    # 领袖资格、继任和选举
+    leader = {                                      # 支持 yes/no/clear。选举、继任与职位等模块需要领袖。
+        title = Convener                            # 领袖区标题。
+        require_member = yes                        # 领袖是否必须属于成员名册。
+        candidate_trigger = { always = yes }        # 候选国家的资格。
+        retain_trigger = { always = yes }           # 在任领袖的保留资格。
+        permissions = {                             # 领袖拥有的自定义权限。
+            approve_budget = yes                    # 可由行动的 actor_permission 引用。no 撤销对应权限。
+        }
+        succession = {                              # clear 清除继任安排。
+            mode = elected                          # explicit、appointed、elected、competition 或 highest_value。
+            event = ruler_changed                   # explicit、vacancy、ruler_changed 或 threshold。后三种用于 elected/highest_value。
+            # value = member_strength               # highest_value 所用的国家计算值。
+            electors_role = elector                 # elected 必填。该职位必须要求持有人是成员。
+            vote_cooldown_days = 30                 # 选票锁定天数，0..3650。
+            cooldown_on_turnover = reset            # 换届时 reset 清空、restart 从头计时、retain 保留。
+            tie_break = incumbent_then_stable_id     # 同分时可选 stable_id，或现任优先后按稳定 ID。
+            # threshold_resource = reserve          # event = threshold 时指定共用资源。
+            # threshold_id = confidence_low         # event = threshold 时指定资源的阈值 ID。
+            # contest_period_days = 30               # competition 的竞逐期，1..36500 天。
+            # score = invested                       # competition 用投入量或一个已定义的国家计算值。
+            # investment = { resource = credits payer = actor amount = 1 } # competition 的个人资源投入。
+            nomination = {                          # elected 的提名分配置。clear 可移除。
+                min = -2000                         # 提名分下限，-2000..2000。
+                max = 2000                          # 提名分上限，-2000..2000。
+                base = 0                            # 基础分，-2000..2000。
+                opinion_weight = 1                  # 选举人对候选人好感的权重，0..10。
+                tooltip = example_nomination_tip    # 分数说明的本地化键。
+                terms = {                           # 整块替换继承的加分项，clear 可清空。
+                    monarchy_bonus = {              # 自定义计分项 ID。
+                        add = 25                    # 此项增减分，-2000..2000。
+                        tooltip = example_bonus_tip # 此项说明。
+                        elector_trigger = { always = yes } # 对选举人检查。
+                        candidate_trigger = { government = monarchy } # 对候选人检查。
+                    }
+                }
+            }
+        }
+    }
+
+    # 选帝侯、官职和竞逐
+    special_members = {                             # 按职位 ID 定义。no/clear 删除整组。对已有 ID 写 clear 删除单个职位。
+        elector = {                                 # 选举人职位示例。
+            acquisition = appointed                 # explicit、appointed 或 competition。
+            max_holders = 7                         # 持有人上限 1..32。竞逐职位只允许 1 个席位。
+            require_member = yes                    # 是否要求持有人为成员。
+            can_hold_with_leader = yes              # 是否可同时担任领袖。
+            candidate_trigger = { always = yes }    # 此职位的候选资格。
+            retain_trigger = { always = yes }       # 此职位的持有资格。
+            title_key = example_elector             # 职位名称本地化键。
+            tooltip = example_elector_tip           # 职位悬停文本。
+            # history_key = elector                 # 可从国家历史指定的 yes/no 字段引入持有人。
+            permissions = { approve_budget = yes }   # 任职时获得的命名权限。
+        }
+        treasurer = {                               # 单席竞逐职位示例。
+            acquisition = competition               # 用竞逐结果决定人选。
+            max_holders = 1                         # 只争一个席位。
+            contest_period_days = 30                # 竞逐期，1..36500 天。
+            score = invested                        # 用投入量或已定义的国家计算值排名。
+            tie_break = stable_id                    # 也可用 incumbent_then_stable_id。
+            investment = {                          # 评分使用 invested 时需要正数投入。
+                resource = credits                   # 已定义的各国专有资源 ID。
+                payer = actor                        # 由候选人自己支付。
+                amount = 1                           # 单次投入额度。
+            }
+        }
+    }
+
+    # 资源、月变和阈值
+    authority = no                                   # 内置 authority ID 的简写。可填 yes 或使用与下方资源相同的属性块。
+    resources = {                                    # 按 ID 定义。no/clear 删除全部，name_of_resource = clear 删除一项。
+        reserve = {                                  # 联盟共用的资源 ID。
+            owner = instance                         # instance 为联盟共用。country 为各国专有。
+            min = 0                                  # 最低值。
+            max = 100                                # 最高值。
+            initial = 55                             # 新实例的初始值。可由历史覆盖。
+            precision = 2                            # 支持 0..3 位小数。上下限、初始值及成本须符合精度。
+            name_key = example_reserve               # 面板资源名。
+            tooltip = example_reserve_tip            # 对当前资源这一行的悬停提示。
+            monthly_growth = {                       # 适用于此资源的月度结算。整块覆盖继承项，no/clear 可关闭。
+                value = 1                            # 基础月增量。
+                growth_modifier = {                  # 可选，读取原版累计修正。
+                    key = cohesion                   # 绑定已登记的修正键，可新建键或选原版适用键。
+                    source = leader                  # leader、leader_capital。country 余额还可用 account_country 或 account_capital。
+                }
+                leader_bonus = {                     # 自定义月变项 ID。每项填写 add 或 modifier 之一。
+                    add = 0.25                       # 条件成立时的固定变化量。
+                    trigger = {                      # 每个变化项只填一个条件。
+                        political_leader = { tag = FRA } # 切到领袖国家，也可用 has_country_flag 等受支持条件。
+                    }
+                }
+                member_pressure = {                  # 实例计算值参与结算的写法。
+                    modifier = -0.25                 # 月成分比例，-1..10。
+                    trigger = {                      # 也支持 always 与实例作用域的 political_has_reform。
+                        political_calculated_value = { # 比较已定义的计算值。
+                            id = stronger_members    # 下方定义的实例计算。
+                            compare = gt             # ge、eq、le、gt、lt、ne。
+                            value = 0                # 用于比较的值。
+                        }
+                    }
+                }
+            }
+            thresholds = {                           # 阈值列表，整块覆盖继承项。no/clear 关闭。
+                confidence_low = {                   # 阈值 ID，可供通知和继任引用。
+                    at = 40                          # 触发边界，必须在资源上下限以内。
+                    direction = falling              # rising 向上或 falling 向下越过时触发。
+                }
+            }
+        }
+        credits = {                                  # 一个国别资源示例。
+            owner = country                          # 资源按实例及国家分别记账。
+            account_holders = members                # members 为每个成员，leader 为在位领袖。
+            on_owner_loss = retain                   # 失去资格时 retain 保留余额或 remove 移除余额。
+            initial = 20                             # 国家首次取得此资源时的初始值。
+            monthly_growth = {                       # 国别资源可直接使用余额所属国的条件。
+                office_salary = {                    # 职位津贴的变化项 ID。
+                    add = 1                          # 每月多得 1。
+                    trigger = { political_has_role = { role = treasurer value = yes } } # 只给任职国。
+                }
+            }
+        }
+    }
+    calculated_values = {                            # 计算值是查询结果。按 ID 定义，no/clear 可删除整组。
+        member_strength = {                          # 国家计算值 ID。
+            scope = country                          # 在单个国家计算。
+            value = { native_value = manpower }      # 此版的原版国家值是 manpower。
+        }
+        stronger_members = {                         # 实例计算值 ID。
+            scope = instance                         # 在一套实例上计算。
+            value = {                                # 计算表达式。
+                count = {                            # 统计满足比较的成员数。
+                    members = yes                    # 从成员名册取数。
+                    value_id = member_strength       # 用上面的国家计算值逐个比较。
+                    compare = gt                     # 比较方向。同月结算支持相同六种比较。
+                    reference = leader               # 用当前领袖的数值作参照。
+                }
+            }
+        }
+    }
+
+    # 改革、决议、限期诏令
+    # 下列行动表都以行动 ID 为键。ID 在同一种类型内必须唯一。可用 clear/no 关闭整个表或移除一条继承行动。
+    reforms = {                                      # 一次通过的改革。可核对其他改革作为前置或互斥。
+        charter = {                                  # 前置改革示例。
+            name = example_charter                   # 按钮文字的本地化键。
+            tooltip = example_charter_tip            # 日常悬停提示。
+        }
+        chamber = {                                  # 有费用与前置的改革。
+            name = example_chamber                   # 改革名称。
+            tooltip = example_chamber_tip            # 行动说明。
+            condition_tooltip = example_chamber_req  # 不可执行时补充说明。
+            actor_rule = permission                  # 执行者选 any、leader、member 或 permission。
+            actor_permission = approve_budget        # actor_rule = permission 时填写已授予的权限 ID。
+            actor_trigger = { always = yes }         # 对执行国检查单个 tag、has_country_flag 或 always。
+            target = none                            # none 或 country。普通有目标行动通过脚本发起。
+            beneficiaries = leader                   # actor、leader、members 或 target。
+            cost = {                                 # 费用。clear 清空继承费用。
+                resource = reserve                   # 从此资源 ID 扣除。
+                payer = instance                     # 共用储备用 instance。国别资源用 actor 或 target。
+                amount = 20                          # 非负，精度与资源一致。
+            }
+            effect = { add_prestige = 5 }            # 此版普通行动的直接效果。有效范围 -100..100。
+            cooldown_days = 30                       # 行动冷却天数，0..36500。
+            requires = { charter }                   # 已通过的前置改革。
+            excludes = { rival }                     # 互斥改革。
+            ui = { region = actions_region }         # 放进布局的行动区。ui = no/clear 可隐藏行。
+        }
+        rival = { name = example_rival }             # 上述互斥条件引用的另一条改革。
+    }
+    decisions = {                                    # 体系内部决议。
+        petition = {                                 # 决议示例。
+            name = example_petition                  # 决议名称。
+            actor_rule = leader                      # 只有领袖执行。
+            repeatable = yes                         # 决议是否允许在结算后再次执行。
+            ui = { region = actions_region }         # 在行动区显示。
+        }
+        greet_country = {                            # 有目标的脚本行动示例。
+            target = country                         # 需要指定国家目标。
+            target_trigger = { tag = SAV }            # 在目标国家上检查单个原版条件。
+            beneficiaries = target                   # 目标国家获得效果。
+            effect = { add_prestige = 1 }             # 可省略效果或写 clear 清空。
+            ui = no                                  # 普通带国家目标的行动由脚本执行。
+        }
+    }
+    decrees = {                                      # 有期限的诏令。
+        civil_service = {                            # 诏令 ID。
+            name = example_civil_service             # 诏令标题。
+            actor_rule = leader                      # 由领袖颁布。
+            term = fixed                             # 固定期限。
+            duration_days = 30                       # 生效持续天数，1..36500。
+            exclusive_group = court_decree           # 同组只并行一个诏令。
+            ui = { region = actions_region }         # 在行动区显示。
+        }
+    }
+
+    # 邀请、事变与 AI
+    diplomatic_actions = {                          # 适用于 explicit 或 mixed 名册的入会邀请。
+        invite = {                                   # 行动 ID。
+            name = example_invite                    # 邀请按钮名称。
+            tooltip = example_invite_tip             # 邀请说明。
+            actor_rule = leader                      # 由领袖发出。
+            target = country                         # 邀请目标是国家。
+            response = request                       # 发送后等待对方答复。
+            timeout_days = 30                        # 答复期限，1..36500 天。
+            effect = {                               # 对方接受后的效果。
+                political_add_member = {             # 将受邀国家纳入此实例。
+                    instance = INSTANCE              # 使用当前实例。
+                    country = TARGET                 # 使用受邀国家。
+                }
+            }
+            ui = { region = actions_region }         # 显示在行动区。
+        }
+    }
+    incidents = {                                    # 限期事变。
+        diet = {                                     # 事变 ID。
+            name = example_diet                      # 事变名称。
+            actor_rule = leader                      # 发起者资格。
+            duration_days = 30                       # 事变期限，1..36500 天。
+            participants = members                   # 成员是参与者。
+            resolution = leader_choice               # 由领袖选结局。
+            options = {                              # 可选结局列表。
+                compromise = {                       # 结局 ID。可用 clear 移除此选项。
+                    name = example_compromise        # 结局名称。
+                    tooltip = example_compromise_tip # 结局提示。
+                    effect = { add_prestige = 2 }     # 此结局的直接威望效果。
+                }
+            }
+            ui = { region = actions_region }          # 是否在行动区显示。
+        }
+    }
+    ai = {                                          # 给已存在的行动附加 AI 规则。no/clear 可取消。
+        petition = {                                 # 只为无国家目标、领袖可执行的行动配自动权重。
+            weight = { value = 0 }                   # 正数启用该权重。0 停用自动发起。
+        }
+        invite = {                                   # 使用已有邀请 ID。
+            accept = { value = 1 }                   # 对 AI 受邀国，1 接受或 0 拒绝。
+        }
+    }
+
+    # 外交和战争
+    rules = {                                       # 体系内规则，no/clear 关闭额外限制。
+        internal_war = vanilla                       # vanilla 沿用原版，可用 block_direct 限制内部直接宣战。
+        protection = no                              # 此版仅接受 no，外部保护尚未开放。
+    }
+    military_obligations = {                         # 选择成员共享的防御义务。no/clear 清空。
+        defensive = no                               # yes 启用成员间防御召唤。
+        offensive = no                               # 此版仅接受 no，进攻义务尚未开放。
+        conflict = vanilla_first                     # 先处理原版外交义务。
+        defensive_trigger = { political_has_reform = { id = charter } } # 附加防御条件。
+    }
+
+    # 面板和主界面入口
+    interface = {                                    # no/clear 可关闭本类型的自定义界面。
+        layout = hre_layout                          # 已注册的布局 ID。
+        background = GFX_hre_bg                      # 与布局底图绑定相符的 GFX 名。
+        title_key = example_title                    # 面板标题本地化键。
+        view_trigger = { always = yes }              # 对当前玩家国家检查查看资格。
+        close_button = yes                           # 红叉是否可用。
+        close_on_escape = yes                        # 是否允许 Esc 关闭。
+        entry_button = {                             # 主界面入口，no/clear 移除，yes 启用继承配置。
+            region = pf075_style_entries             # 已注册的入口区域。
+            icon = GFX_pf075_hre_icon                 # 区域内已绑定的素材名。
+            order = 1                                # 区域内排序，0..32767。
+            visible = { always = yes }               # 图标是否显示。
+            enabled = { always = yes }               # 图标是否可打开。
+            tooltip = example_open                   # 悬停时的正常提示。
+            disabled_tooltip = example_locked        # 置灰时的提示。
+            toggle = yes                             # 再点同一入口时是否关闭。
+        }
+    }
+
+    # 0.9.2 原版消息。按需复制到具体类型，ID 由作者定义。
+    messages = {
+        council_notice = {
+            title = example_notice_title           # 弹窗标题键。
+            subtitle = example_notice_subtitle     # 可省略的横幅文字键。
+            body = { example_notice_first example_notice_second } # 1 至 4 段本地化键。
+            log = example_notice_log               # 日志键。省略时使用第一段正文。
+            popup = yes                            # yes 允许自动弹窗。no 只记录消息。
+            options = {
+                close = example_notice_read        # 主确认按钮的本地化键。
+                secondary = example_notice_file   # 可省略的第二确认按钮。
+            }
+        }
+    }
+    # 在合法的国家效果作用域调用 political_send_message。
+    # 例如 political_send_message = { instance = INSTANCE message = council_notice target = ROOT }
+
+    # 预留键和其他文件
+    leader_election = no                             # 此旧顶层键仅能关闭。选举请写 leader.succession。
+    modifiers = no                                   # 此版类型内此键仅能关闭。原版修正键另在 common/political_modifiers 注册。
+    on_actions = no                                  # 此版仅能关闭该保留入口。实际触发器和效果参见接口表。
+}
+
+# 已接入的条件块可写该作用域下的原版条件及自定义 scripted trigger。预检后，进游戏确认运行结果。
+# 筛选、保留、候选与提名等国家专属位置使用原版国家条件。入口和适当的实例条件块可引用已登记的扩展查询。
+# 资源月变的 native_term.trigger 走原版求值，growth_modifier 指定修正来源；旧式简写字段仍按各自语法。
+# 原版作用域见 docs/Native-Scripting.zh-CN.md。对外脚本的完整参数见 anvil/api_manifest.json。

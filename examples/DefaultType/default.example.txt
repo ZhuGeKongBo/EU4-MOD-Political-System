@@ -1,0 +1,19 @@
+# Optional catalogue-wide default. Keep this under examples until you want
+# every type without copy_from to inherit it. Use only one enabled default.
+default = {
+    abstract = yes
+
+    # Shared member rule. Instance history can seed explicit membership.
+    members = { source = explicit }
+
+    # Optional blocks to add individually in an owning content pack.
+    # leader = { title = example_leader_title }
+    # resources = {
+    #     reserve = { initial = 55 precision = 2 name_key = example_reserve tooltip = example_reserve_tip }
+    # }
+    # special_members = {
+    #     delegate = { acquisition = appointed max_holders = 3 require_member = yes title_key = example_delegate }
+    # }
+    # interface = { layout = your_registered_layout }
+    # Add an entry_button in a concrete type once its HUD region and GFX exist.
+}

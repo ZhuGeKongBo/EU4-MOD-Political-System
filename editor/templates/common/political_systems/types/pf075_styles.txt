@@ -1,0 +1,213 @@
+# These types are abstract. Set copy_from in a concrete authoring type.
+hre_style = {
+    abstract = yes
+    authority = { initial = 60 }
+    members = { source = capital_territory title = Members }
+    territory = { source = province_history history_key = hre }
+    leader = {
+        title = Emperor require_member = yes
+        succession = {
+            mode = elected event = ruler_changed electors_role = elector
+            vote_cooldown_days = 30 cooldown_on_turnover = retain tie_break = incumbent_then_stable_id
+            nomination = {
+                min = -2000 max = 2000 opinion_weight = 1
+                tooltip = pf079_nomination_tip
+                terms = {
+                    government = {
+                        add = -1000 tooltip = pf079_not_monarchy
+                        candidate_trigger = { NOT = { government = monarchy } }
+                    }
+                    heir = {
+                        add = -1000 tooltip = pf079_no_heir
+                        candidate_trigger = { has_heir = no }
+                    }
+                }
+            }
+        }
+    }
+    special_members = {
+        elector = {
+            title_key = pf075_elector tooltip = pf075_elector_tip
+            acquisition = appointed require_member = yes max_holders = 7
+            history_key = elector
+        }
+        free_city = { title_key = pf075_free_city tooltip = pf075_free_city_tip acquisition = appointed require_member = yes max_holders = 8 }
+    }
+    reforms = {
+        charter = {
+            name = pf075_charter tooltip = pf075_charter_tip actor_rule = leader
+            cost = { resource = authority payer = instance amount = 20 } ui = { region = actions_region }
+        }
+        chamber = {
+            name = pf075_chamber tooltip = pf075_chamber_tip actor_rule = leader
+            requires = { charter } ui = { region = actions_region }
+        }
+    }
+    incidents = {
+        diet = {
+            name = pf075_diet tooltip = pf075_diet_tip actor_rule = leader
+            duration_days = 30 participants = members resolution = leader_choice
+            options = { approve = { name = pf075_approve effect = {} } reject = { name = pf075_reject effect = {} } }
+            ui = { region = actions_region }
+        }
+    }
+    interface = {
+        layout = hre_layout
+        background = GFX_hre_bg
+        title_key = pf075_hre_title
+        entry_button = {
+            region = pf075_style_entries
+            icon = GFX_pf075_hre_icon
+            order = 1
+            tooltip = pf075_hre_entry
+        }
+    }
+}
+
+celestial_style = {
+    abstract = yes
+    members = { source = leader_subjects subject_type = tributary_state title = Tributaries }
+    leader = { title = Emperor }
+    resources = {
+        mandate = { initial = 55 precision = 2 name_key = pf075_mandate tooltip = pf075_mandate_tip }
+        meritocracy = {
+            owner = country account_holders = leader on_owner_loss = retain
+            initial = 20 precision = 2 name_key = pf075_meritocracy tooltip = pf075_meritocracy_tip
+        }
+    }
+    reforms = {
+        charter = {
+            name = pf075_charter tooltip = pf075_charter_tip actor_rule = leader
+            cost = { resource = mandate payer = instance amount = 20 }
+            ui = { region = actions_region }
+        }
+    }
+    decrees = {
+        civil_service = {
+            name = pf075_civil_service tooltip = pf075_civil_service_tip actor_rule = leader
+            term = fixed duration_days = 30
+            cost = { resource = meritocracy payer = actor amount = 10 }
+            ui = { region = actions_region }
+        }
+    }
+    interface = {
+        layout = celestial_layout
+        background = GFX_eoc_bg_dom
+        title_key = pf075_celestial_title
+        entry_button = {
+            region = pf075_style_entries
+            icon = GFX_pf075_celestial_icon
+            order = 2
+            tooltip = pf075_celestial_entry
+        }
+    }
+}
+
+papacy_style = {
+    abstract = yes
+    members = { source = query source_trigger = { religion = catholic } title = Members }
+    leader = { title = Pontiff }
+    resources = {
+        influence = {
+            owner = country account_holders = members on_owner_loss = retain
+            initial = 15 precision = 2 name_key = pf075_influence tooltip = pf075_influence_tip
+        }
+        treasury = { initial = 50 precision = 2 name_key = pf075_treasury tooltip = pf075_treasury_tip }
+    }
+    special_members = {
+        cardinal = { title_key = pf075_cardinal tooltip = pf075_cardinal_tip acquisition = appointed require_member = yes max_holders = 12 }
+        curia_controller = {
+            title_key = pf075_controller tooltip = pf075_controller_tip require_member = yes
+            acquisition = competition contest_period_days = 30 score = invested
+            tie_break = incumbent_then_stable_id
+            investment = { resource = influence payer = actor amount = 5 }
+            permissions = { execute_privileged_action = yes }
+        }
+    }
+    decisions = {
+        petition = {
+            name = pf075_petition tooltip = pf075_petition_tip
+            actor_rule = permission actor_permission = execute_privileged_action
+            cost = { resource = treasury payer = instance amount = 5 }
+            repeatable = no ui = { region = actions_region }
+        }
+    }
+    interface = {
+        layout = papacy_layout
+        background = GFX_papacy_bg
+        title_key = pf075_papacy_title
+        entry_button = {
+            region = pf075_style_entries
+            icon = GFX_pf075_papacy_icon
+            order = 3
+            tooltip = pf075_papacy_entry
+        }
+    }
+}
+
+federation_style = {
+    abstract = yes
+    existence = { max_instances = 0 allow_dynamic_creation = yes allow_dissolution = yes }
+    members = { source = explicit title = Members max_per_country = 1 }
+    leader = {
+        title = Convener
+        require_member = yes
+        succession = {
+            mode = highest_value event = threshold
+            threshold_resource = cohesion threshold_id = leadership_review
+            value = member_strength tie_break = incumbent_then_stable_id
+        }
+    }
+    resources = {
+        cohesion = {
+            initial = 45 precision = 2
+            name_key = pf075_cohesion tooltip = pf075_cohesion_tip
+            monthly_growth = {
+                value = 1
+                growth_modifier = { key = cohesion source = leader }
+                pressure = { add = -0.25 trigger = { political_calculated_value = { id = stronger_members compare = gt value = 0 } } }
+            }
+            thresholds = { leadership_review = { at = 40 direction = falling } }
+        }
+    }
+    calculated_values = {
+        member_strength = { scope = country value = { native_value = manpower } }
+        stronger_members = { scope = instance value = { count = { members = yes value_id = member_strength compare = gt reference = leader } } }
+    }
+    reforms = {
+        council = {
+            name = pf075_federation_council tooltip = pf075_federation_council_tip
+            actor_rule = leader cost = { resource = cohesion payer = instance amount = 10 }
+            ui = { region = actions_region }
+        }
+        common_banner = {
+            name = pf075_banner tooltip = pf075_banner_tip actor_rule = leader requires = { council }
+            ui = { region = actions_region }
+        }
+    }
+    diplomatic_actions = {
+        invite = {
+            name = pf075_invite tooltip = pf075_invite_tip actor_rule = leader target = country
+            response = request timeout_days = 30
+            effect = { political_add_member = { instance = INSTANCE country = TARGET } }
+            ui = { region = actions_region }
+        }
+    }
+    ai = { invite = { accept = { value = 1 } } }
+    rules = { internal_war = block_direct }
+    military_obligations = {
+        defensive = yes conflict = vanilla_first
+        defensive_trigger = { political_has_reform = { id = common_banner } }
+    }
+    interface = {
+        layout = federation_layout
+        background = GFX_natives_view_bg
+        title_key = pf075_federation_title
+        entry_button = {
+            region = pf075_style_entries
+            icon = GFX_pf075_federation_icon
+            order = 4
+            tooltip = pf075_federation_entry
+        }
+    }
+}

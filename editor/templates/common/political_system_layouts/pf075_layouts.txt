@@ -1,0 +1,122 @@
+hre_layout = {
+    gui_file = "interface/pf075_panels.gui"
+    window = pf075_hre_panel
+    background_control = panel_background
+    hover_control = panel_hover
+    title_control = panel_title
+    close_control = close_panel
+    instance_control = open_instances
+    leader_history_control = leader_history_hover
+    vote_control = open_ballot
+    tooltips = {
+        panel_title = pf075_panel_tip leader_title = pf075_leader_tip leader_name = pf075_leader_tip
+        member_heading = pf075_members_tip office_heading = pf075_offices_tip action_heading = pf075_actions_tip
+    }
+    regions = {
+        leader_region = { auto_place = yes frame = pf076_hre_leader_frame control = leader_flag kind = slot caption = leader_title label = leader_name tooltip = pf075_leader_tip }
+        members_region = { auto_place = yes frame = pf076_hre_members_frame control = member_flag kind = grid caption = member_heading rows = 2 columns = 5 scrollbar = membership_scroll tooltip = pf075_members_tip }
+        primary_resource_region = { value_control = primary_resource_value growth_control = primary_resource_growth }
+        system_resources_region = { control = register_name kind = list rows = 2 scrollbar = register_scroll
+                                    value_control = register_value }
+        special_members_region = { control = office_flag kind = grid caption = office_heading rows = 4 columns = 2
+                                   group_heading = office_group_title group_tooltip_control = office_group_hit
+                                   scrollbar = offices_scroll tooltip = pf075_offices_tip
+                                   nomination_score = elector_score
+                                   support_shield = elector_support }
+        actions_region = { control = action_button kind = list scrollbar = action_scroll rows = 3 label = action_name
+                           read_only_control = action_readonly seal_control = action_seal check_control = action_mark }
+    }
+}
+
+celestial_layout = {
+    gui_file = "interface/pf075_panels.gui"
+    window = pf075_celestial_panel
+    background_control = panel_background
+    hover_control = panel_hover
+    title_control = panel_title
+    close_control = close_panel
+    instance_control = open_instances
+    leader_history_control = leader_history_hover
+    tooltips = {
+        panel_title = pf075_panel_tip leader_title = pf075_leader_tip leader_name = pf075_leader_tip
+        member_heading = pf075_members_tip office_heading = pf075_offices_tip action_heading = pf075_actions_tip
+    }
+    regions = {
+        leader_region = { auto_place = yes frame = pf076_celestial_leader_frame control = leader_flag kind = slot caption = leader_title label = leader_name tooltip = pf075_leader_tip }
+        members_region = { auto_place = yes frame = pf076_celestial_members_frame control = member_flag kind = grid caption = member_heading rows = 3 columns = 5 scrollbar = membership_scroll tooltip = pf075_members_tip }
+        primary_resource_region = { value_control = primary_resource_value growth_control = primary_resource_growth }
+        system_resources_region = { control = register_name kind = list rows = 2 scrollbar = register_scroll
+                                    value_control = register_value }
+        special_members_region = { control = office_flag kind = grid caption = office_heading rows = 4 columns = 2
+                                   group_heading = office_group_title group_tooltip_control = office_group_hit
+                                   scrollbar = offices_scroll tooltip = pf075_offices_tip }
+        actions_region = { control = action_button kind = list scrollbar = action_scroll rows = 4 label = action_name
+                           read_only_control = action_readonly seal_control = action_seal check_control = action_mark }
+    }
+}
+
+papacy_layout = {
+    gui_file = "interface/pf075_panels.gui"
+    window = pf075_papacy_panel
+    background_control = panel_background
+    hover_control = panel_hover
+    title_control = panel_title
+    close_control = close_panel
+    instance_control = open_instances
+    leader_history_control = leader_history_hover
+    tooltips = {
+        panel_title = pf075_panel_tip leader_title = pf075_leader_tip leader_name = pf075_leader_tip
+        member_heading = pf075_members_tip office_heading = pf075_offices_tip action_heading = pf075_actions_tip
+    }
+    regions = {
+        leader_region = { auto_place = yes frame = pf076_papacy_leader_frame control = leader_flag kind = slot caption = leader_title label = leader_name tooltip = pf075_leader_tip }
+        members_region = { control = member_flag kind = grid caption = member_heading rows = 2 columns = 4 scrollbar = membership_scroll tooltip = pf075_members_tip }
+        primary_resource_region = { value_control = primary_resource_value growth_control = primary_resource_growth }
+        system_resources_region = { control = register_name kind = list rows = 2 scrollbar = register_scroll
+                                    value_control = register_value }
+        special_members_region = { control = office_flag kind = grid caption = office_heading rows = 4 columns = 2
+                                   group_heading = office_group_title group_tooltip_control = office_group_hit
+                                   scrollbar = offices_scroll tooltip = pf075_offices_tip }
+        actions_region = { control = action_button kind = list scrollbar = action_scroll rows = 4 label = action_name
+                           read_only_control = action_readonly seal_control = action_seal check_control = action_mark }
+    }
+}
+
+federation_layout = {
+    gui_file = "interface/pf075_panels.gui"
+    window = pf075_federation_panel
+    background_control = panel_background
+    hover_control = panel_hover
+    title_control = panel_title
+    close_control = close_panel
+    instance_control = open_instances
+    leader_history_control = leader_history_hover
+    tooltips = {
+        panel_title = pf075_panel_tip leader_title = pf075_leader_tip leader_name = pf075_leader_tip
+        member_heading = pf075_members_tip office_heading = pf075_offices_tip action_heading = pf075_actions_tip
+    }
+    regions = {
+        leader_region = { auto_place = yes frame = pf076_federation_leader_frame control = leader_flag kind = slot caption = leader_title label = leader_name tooltip = pf075_leader_tip }
+        members_region = { control = member_flag kind = grid caption = member_heading rows = 2 columns = 4 scrollbar = membership_scroll tooltip = pf075_members_tip }
+        primary_resource_region = { value_control = primary_resource_value growth_control = primary_resource_growth }
+        system_resources_region = { control = register_name kind = list rows = 2 scrollbar = register_scroll
+                                    value_control = register_value }
+        special_members_region = { control = office_flag kind = grid caption = office_heading rows = 4 columns = 2
+                                   group_heading = office_group_title group_tooltip_control = office_group_hit
+                                   scrollbar = offices_scroll tooltip = pf075_offices_tip }
+        actions_region = { control = action_button kind = list scrollbar = action_scroll rows = 4 label = action_name
+                           read_only_control = action_readonly seal_control = action_seal check_control = action_mark }
+    }
+}
+
+hud_regions = {
+    pf075_style_entries = {
+        gui_file = "interface/pf075_panels.gui"
+        gfx_file = "interface/pf075_icons.gfx"
+        container = pf075_style_slot
+        button_template = pf075_style_icon
+        capacity = 5
+        page_window = pf075_style_page
+        overflow = paginate
+    }
+}
