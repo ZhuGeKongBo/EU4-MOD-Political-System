@@ -64,7 +64,7 @@
 4. 开 1444 年普通单人新局，选足利（ASK）或蒙古（KHA），在小地图旁找到图标。
 
 > [!IMPORTANT]
-> - 装过双字节或 UTF-8 汉化补丁的玩家：汉化补丁和 Anvil 都使用 `version.dll`，直接安装会互相覆盖，两者共存的方法尚未验证。安装前请先备份。
+> - **汉化 DLL 兼容性。** 本项目通过 Anvil 与 Mei 汉化插件配合使用。游戏根目录的 `version.dll` 由 Anvil 提供，Mei 放在 `anvil/plugins/mei/`，负责读取 UTF-8 本地化并解码旧 EU4DLL 格式的汉化文本。框架使用游戏加载后的文本。已实测 Mei 0.9.0 与框架 0.9.1 同时加载，0.9.2 尚待复验。如果旧汉化补丁也要求把自己的 `version.dll` 放进游戏根目录，它会与 Anvil 的同名文件互相覆盖。更换前请先备份。
 > - 本 MOD 替换了 `interface/messagetypes.txt`。其他替换这个文件的 MOD 会互相覆盖，需要手动合并消息注册项。
 
 每一步的检查方法和出错处理见 **[安装教程](docs/Install-Guide.zh-CN.md)**。
@@ -155,7 +155,7 @@ See the [validation record](docs/Validation.md) for details.
 4. Start an ordinary single-player game in 1444 as Ashikaga (ASK) or the Mongols (KHA) and look for the icon beside the minimap.
 
 > [!IMPORTANT]
-> - If you use the double-byte or UTF-8 Chinese patch: both it and Anvil use `version.dll` and will overwrite each other. A way to run both has not been verified. Back up before installing.
+> - **Chinese localisation DLL compatibility.** The framework works with the Mei localisation plugin through Anvil. Anvil supplies `version.dll` in the game directory. Mei loads from `anvil/plugins/mei/` and handles UTF-8 localisation and legacy EU4DLL-encoded text. The framework uses the text loaded by the game. Mei 0.9.0 and framework 0.9.1 were verified to load together. Framework 0.9.2 still needs a retest. If an older patch also installs its own `version.dll` in the game directory, it will overwrite the Anvil loader. Back up the existing file before replacing it.
 > - This mod replaces `interface/messagetypes.txt`. Other mods that replace the same file will overwrite each other; merge the message entries by hand.
 
 For checks after every step and troubleshooting, see the **[installation guide](docs/Install-Guide.en.md)**.
